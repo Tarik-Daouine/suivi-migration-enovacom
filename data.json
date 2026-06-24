@@ -13,7 +13,7 @@
       "name": "Préparation",
       "type": "phase",
       "status": "a_faire",
-      "progress": 38,
+      "progress": 100,
       "dependsOn": [],
       "unlocks": [
         "wf-02"
