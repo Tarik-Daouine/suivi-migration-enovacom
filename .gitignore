@@ -3,6 +3,7 @@ editor.html
 editor.js
 serve.py
 publier.bat
+editeur.bat
 
 # Fichiers système
 Thumbs.db
