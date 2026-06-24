@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MIGRATION - ENOVACOM : PREMIER WEEK-END</title>
+  <meta name="description" content="Suivi de la migration Enovacom vers la Production - Premier week-end de MEP." />
+  <link rel="icon" type="image/svg+xml" href="assets/enovacom-logo.svg" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- 4.1 Header fixe -->
+  <header class="app-header" id="appHeader">
+    <div class="header-left">
+      <img src="assets/enovacom-logo.svg" alt="Enovacom" class="header-logo" />
+      <div class="header-titles">
+        <h1 class="header-title" id="projectTitle">MIGRATION - ENOVACOM : PREMIER WEEK-END</h1>
+        <div class="header-meta">
+          <span class="badge badge-env" id="envBadge">Production</span>
+          <span class="header-update">Dernière mise à jour : <strong id="lastUpdate">—</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="header-right">
+      <span class="header-state-label">État global du runbook</span>
+      <span class="status-pill status-pill-lg" id="globalState">—</span>
+    </div>
+  </header>
+
+  <main class="app-main">
+    <!-- 4.2 Bandeau KPI -->
+    <section class="kpi-band" id="kpiBand" aria-label="Indicateurs clés">
+      <!-- KPI cards injected by app.js -->
+    </section>
+
+    <!-- 4.3 Workflow principal -->
+    <section class="workflow-section">
+      <div class="section-head">
+        <h2>Runbook de migration — Production</h2>
+        <p class="section-sub">Chronologie séquentielle. Chaque étape débloque la suivante.</p>
+      </div>
+      <ol class="timeline" id="timeline">
+        <!-- Steps injected by app.js -->
+      </ol>
+    </section>
+
+    <!-- 4.5 Section de synthèse des automatismes -->
+    <section class="automations-summary">
+      <div class="section-head">
+        <h2>Synthèse des automatismes (Power Automate)</h2>
+        <p class="section-sub">Rappel de tous les flux. Chacun apparaît aussi dans le runbook, au bon moment.</p>
+      </div>
+      <div class="automation-grid" id="automationSummary">
+        <!-- Automation cards injected by app.js -->
+      </div>
+    </section>
+
+    <footer class="app-footer">
+      <span id="footerProject">Enovacom — Production</span>
+      <span>Dashboard de suivi en lecture seule · alimenté par <code>data.json</code></span>
+    </footer>
+  </main>
+
+  <!-- 4.6 Panneau détail latéral -->
+  <div class="detail-overlay" id="detailOverlay" hidden></div>
+  <aside class="detail-panel" id="detailPanel" aria-hidden="true" role="dialog" aria-label="Détail de la table">
+    <div class="detail-head">
+      <h3 id="detailTitle">Détail</h3>
+      <button class="detail-close" id="detailClose" aria-label="Fermer le panneau">&times;</button>
+    </div>
+    <div class="detail-body" id="detailBody"></div>
+  </aside>
+
+  <div class="load-error" id="loadError" hidden>
+    <p>Impossible de charger <code>data.json</code>. Vérifiez que le fichier est présent à côté de <code>index.html</code>.</p>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

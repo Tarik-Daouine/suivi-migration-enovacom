@@ -1,0 +1,12 @@
+# Éditeur local — usage interne, NE PAS publier au client
+editor.html
+editor.js
+
+# Fichiers système
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Éditeurs / IDE
+.vscode/
+*.swp

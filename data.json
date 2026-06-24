@@ -1,0 +1,1353 @@
+{
+  "project": {
+    "title": "MIGRATION - ENOVACOM : PREMIER WEEK-END",
+    "environment": "Production",
+    "lastUpdate": "2026-06-24",
+    "client": "Enovacom",
+    "logo": "assets/enovacom-logo.svg"
+  },
+  "workflow": [
+    {
+      "id": "wf-01",
+      "order": 1,
+      "name": "Préparation",
+      "type": "phase",
+      "status": "a_faire",
+      "progress": 0,
+      "dependsOn": [],
+      "unlocks": [
+        "wf-02"
+      ],
+      "comment": "Étape racine. Démarre le runbook.",
+      "note": ""
+    },
+    {
+      "id": "wf-02",
+      "order": 2,
+      "name": "Export des solutions Sandbox",
+      "type": "phase",
+      "status": "a_faire",
+      "progress": 0,
+      "dependsOn": [
+        "wf-01"
+      ],
+      "unlocks": [
+        "wf-03"
+      ],
+      "hasSolutions": true,
+      "comment": "Contient Export 2025, Paramétrage Export, SiteMap, Listing des automatisations, Power Automate - Détection des doublons.",
+      "note": ""
+    },
+    {
+      "id": "wf-03",
+      "order": 3,
+      "name": "Mise à jour des packages KingswaySoft",
+      "type": "phase",
+      "status": "a_faire",
+      "progress": 0,
+      "dependsOn": [
+        "wf-02"
+      ],
+      "unlocks": [
+        "wf-04"
+      ],
+      "comment": "Les packages doivent pointer vers la Production.",
+      "note": ""
+    },
+    {
+      "id": "wf-04",
+      "order": 4,
+      "name": "Sauvegarde des packages KingswaySoft (OneDrive)",
+      "type": "phase",
+      "status": "a_faire",
+      "progress": 0,
+      "dependsOn": [
+        "wf-03"
+      ],
+      "unlocks": [
+        "wf-05"
+      ],
+      "comment": "Sauvegarde avant MEP.",
+      "note": ""
+    },
+    {
+      "id": "wf-05",
+      "order": 5,
+      "name": "DÉBUT DE LA MEP",
+      "type": "milestone",
+      "status": "a_faire",
+      "progress": null,
+      "dependsOn": [
+        "wf-04"
+      ],
+      "unlocks": [
+        "wf-06"
+      ],
+      "comment": "Séparateur visuel obligatoire.",
+      "note": ""
+    },
+    {
+      "id": "wf-06",
+      "order": 6,
+      "name": "Suppression des rôles utilisateurs",
+      "type": "phase",
+      "status": "a_faire",
+      "progress": 0,
+      "dependsOn": [
+        "wf-05"
+      ],
+      "unlocks": [
+        "wf-07"
+      ],
+      "comment": "Action qui provoque la coupure d'accès.",
+      "note": ""
+    },
+    {
+      "id": "wf-07",
+      "order": 7,
+      "name": "Les utilisateurs perdent automatiquement l'accès",
+      "type": "consequence",
+      "status": "a_faire",
+      "progress": 0,
+      "dependsOn": [
+        "wf-06"
+      ],
+      "unlocks": [
+        "wf-08"
+      ],
+      "comment": "Conséquence directe de la suppression des rôles.",
+      "note": ""
+    },
+    {
+      "id": "wf-08",
+      "order": 8,
+      "name": "Import des solutions en Production",
+      "type": "phase",
+      "status": "a_faire",
+      "progress": 0,
+      "dependsOn": [
+        "wf-07"
+      ],
+      "unlocks": [
+        "wf-09"
+      ],
+      "hasSolutions": true,
+      "comment": "Import dans l'ordre défini.",
+      "note": ""
+    },
+    {
+      "id": "wf-09",
+      "order": 9,
+      "name": "Publication des personnalisations",
+      "type": "phase",
+      "status": "a_faire",
+      "progress": 0,
+      "dependsOn": [
+        "wf-08"
+      ],
+      "unlocks": [
+        "wf-10"
+      ],
+      "comment": "Après import des solutions.",
+      "note": ""
+    },
+    {
+      "id": "wf-10",
+      "order": 10,
+      "name": "Tests rapides des personnalisations",
+      "type": "phase",
+      "status": "a_faire",
+      "progress": 0,
+      "dependsOn": [
+        "wf-09"
+      ],
+      "unlocks": [
+        "wf-11"
+      ],
+      "comment": "Contrôle technique rapide.",
+      "note": ""
+    },
+    {
+      "id": "wf-11",
+      "order": 11,
+      "name": "Désactivation des automatismes",
+      "type": "phase",
+      "status": "a_faire",
+      "progress": 0,
+      "dependsOn": [
+        "wf-10"
+      ],
+      "unlocks": [
+        "wf-12"
+      ],
+      "comment": "Plugins, Workflows, Power Automate, Business Rules si nécessaire.",
+      "note": ""
+    },
+    {
+      "id": "wf-12",
+      "order": 12,
+      "name": "Migration des données",
+      "type": "phase",
+      "status": "a_faire",
+      "progress": 0,
+      "dependsOn": [
+        "wf-11"
+      ],
+      "unlocks": [
+        "wf-13"
+      ],
+      "hasTables": true,
+      "comment": "Bloc dépliable contenant toutes les tables et les flux entre tables.",
+      "note": ""
+    },
+    {
+      "id": "wf-13",
+      "order": 13,
+      "name": "Vérifications techniques",
+      "type": "phase",
+      "status": "a_faire",
+      "progress": 0,
+      "dependsOn": [
+        "wf-12"
+      ],
+      "unlocks": [
+        "wf-14"
+      ],
+      "comment": "Contrôles post-import.",
+      "note": ""
+    },
+    {
+      "id": "wf-14",
+      "order": 14,
+      "name": "Réactivation des automatismes",
+      "type": "phase",
+      "status": "a_faire",
+      "progress": 0,
+      "dependsOn": [
+        "wf-13"
+      ],
+      "unlocks": [
+        "wf-15"
+      ],
+      "comment": "Réactivation contrôlée.",
+      "note": ""
+    },
+    {
+      "id": "wf-15",
+      "order": 15,
+      "name": "Réattribution des rôles utilisateurs",
+      "type": "phase",
+      "status": "a_faire",
+      "progress": 0,
+      "dependsOn": [
+        "wf-14"
+      ],
+      "unlocks": [
+        "wf-16"
+      ],
+      "comment": "Rend les accès aux utilisateurs.",
+      "note": ""
+    },
+    {
+      "id": "wf-16",
+      "order": 16,
+      "name": "Les utilisateurs retrouvent automatiquement l'accès",
+      "type": "consequence",
+      "status": "a_faire",
+      "progress": 0,
+      "dependsOn": [
+        "wf-15"
+      ],
+      "unlocks": [
+        "wf-17"
+      ],
+      "comment": "Conséquence directe de la réattribution des rôles.",
+      "note": ""
+    },
+    {
+      "id": "wf-17",
+      "order": 17,
+      "name": "Tests métier",
+      "type": "phase",
+      "status": "a_faire",
+      "progress": 0,
+      "dependsOn": [
+        "wf-16"
+      ],
+      "unlocks": [
+        "wf-18"
+      ],
+      "comment": "Validation client / métier.",
+      "note": ""
+    },
+    {
+      "id": "wf-18",
+      "order": 18,
+      "name": "GO",
+      "type": "phase",
+      "status": "a_faire",
+      "progress": 0,
+      "dependsOn": [
+        "wf-17"
+      ],
+      "unlocks": [],
+      "comment": "Fin du workflow.",
+      "note": ""
+    }
+  ],
+  "solutions": [
+    {
+      "order": 1,
+      "name": "Export 2025",
+      "status": "a_faire",
+      "comment": "Obligatoirement en 1",
+      "note": ""
+    },
+    {
+      "order": 2,
+      "name": "Paramétrage Export",
+      "status": "a_faire",
+      "comment": "Respecter cet ordre",
+      "note": ""
+    },
+    {
+      "order": 3,
+      "name": "SiteMap",
+      "status": "a_faire",
+      "comment": "Respecter cet ordre",
+      "note": ""
+    },
+    {
+      "order": 4,
+      "name": "Listing des automatisations",
+      "status": "a_faire",
+      "comment": "Respecter cet ordre",
+      "note": ""
+    },
+    {
+      "order": 5,
+      "name": "Power Automate - Détection des doublons",
+      "status": "a_faire",
+      "comment": "Respecter cet ordre",
+      "note": ""
+    }
+  ],
+  "tables": [
+    {
+      "order": 1,
+      "name": "Devise",
+      "family": "Référentiels",
+      "type": "standard",
+      "ssisProject": "EnovacomV2",
+      "onPremCount": "7",
+      "d365Count": "7",
+      "gap": "0",
+      "status": "a_faire",
+      "comment": "Première table du flux SSIS.",
+      "note": ""
+    },
+    {
+      "order": 2,
+      "name": "Groupe d'unité",
+      "family": "Référentiels",
+      "type": "standard",
+      "ssisProject": "EnovacomV2",
+      "onPremCount": "4",
+      "d365Count": "4",
+      "gap": "0",
+      "status": "a_faire",
+      "comment": "Dépend de Devise selon le schéma SSIS.",
+      "note": ""
+    },
+    {
+      "order": 3,
+      "name": "Unité",
+      "family": "Référentiels",
+      "type": "standard",
+      "ssisProject": "EnovacomV2",
+      "onPremCount": "10",
+      "d365Count": "10",
+      "gap": "0",
+      "status": "a_faire",
+      "comment": "Dépend de Groupe d'unité.",
+      "note": ""
+    },
+    {
+      "order": 4,
+      "name": "Secteur de ventes",
+      "family": "Référentiels",
+      "type": "à confirmer",
+      "ssisProject": "EnovacomV2",
+      "onPremCount": "35",
+      "d365Count": "35",
+      "gap": "0",
+      "status": "a_faire",
+      "comment": "Dépend de Unité selon le schéma SSIS.",
+      "note": ""
+    },
+    {
+      "order": 5,
+      "name": "Tarifs",
+      "family": "Référentiels",
+      "type": "standard",
+      "ssisProject": "EnovacomV2",
+      "onPremCount": "61",
+      "d365Count": "61",
+      "gap": "0",
+      "status": "a_faire",
+      "comment": "Dépend de Secteur de ventes.",
+      "note": ""
+    },
+    {
+      "order": 6,
+      "name": "Sujet Parents",
+      "family": "Référentiels",
+      "type": "standard",
+      "ssisProject": "EnovacomV2",
+      "onPremCount": "65",
+      "d365Count": "65",
+      "gap": "0",
+      "status": "a_faire",
+      "comment": "Sujet parent.",
+      "note": ""
+    },
+    {
+      "order": 7,
+      "name": "Sujet Enfant 1",
+      "family": "Référentiels",
+      "type": "standard",
+      "ssisProject": "EnovacomV2",
+      "onPremCount": "",
+      "d365Count": "",
+      "gap": "",
+      "status": "a_faire",
+      "comment": "Niveau enfant 1.",
+      "note": ""
+    },
+    {
+      "order": 8,
+      "name": "Sujet Enfant 2",
+      "family": "Référentiels",
+      "type": "standard",
+      "ssisProject": "EnovacomV2",
+      "onPremCount": "",
+      "d365Count": "",
+      "gap": "",
+      "status": "a_faire",
+      "comment": "Niveau enfant 2.",
+      "note": ""
+    },
+    {
+      "order": 9,
+      "name": "Sujet Enfant 3",
+      "family": "Référentiels",
+      "type": "standard",
+      "ssisProject": "EnovacomV2",
+      "onPremCount": "",
+      "d365Count": "",
+      "gap": "",
+      "status": "a_faire",
+      "comment": "Niveau enfant 3.",
+      "note": ""
+    },
+    {
+      "order": 10,
+      "name": "Sujet Enfant 4",
+      "family": "Référentiels",
+      "type": "standard",
+      "ssisProject": "EnovacomV2",
+      "onPremCount": "",
+      "d365Count": "",
+      "gap": "",
+      "status": "a_faire",
+      "comment": "Niveau enfant 4.",
+      "note": ""
+    },
+    {
+      "order": 11,
+      "name": "Produits Famille",
+      "family": "Produits",
+      "type": "standard",
+      "ssisProject": "EnovacomV2",
+      "onPremCount": "",
+      "d365Count": "",
+      "gap": "",
+      "status": "a_faire",
+      "comment": "Familles de produits.",
+      "note": ""
+    },
+    {
+      "order": 12,
+      "name": "Produits Offres",
+      "family": "Produits",
+      "type": "standard",
+      "ssisProject": "EnovacomV2",
+      "onPremCount": "",
+      "d365Count": "",
+      "gap": "",
+      "status": "a_faire",
+      "comment": "Produits/offres.",
+      "note": ""
+    },
+    {
+      "order": 13,
+      "name": "Produits Unité",
+      "family": "Produits",
+      "type": "standard",
+      "ssisProject": "EnovacomV2",
+      "onPremCount": "1997",
+      "d365Count": "1997",
+      "gap": "0",
+      "status": "a_faire",
+      "comment": "Produit + unité.",
+      "note": ""
+    },
+    {
+      "order": 14,
+      "name": "Éléments tarifaire",
+      "family": "Produits",
+      "type": "standard",
+      "ssisProject": "EnovacomV2",
+      "onPremCount": "13783",
+      "d365Count": "13783",
+      "gap": "0",
+      "status": "a_faire",
+      "comment": "Dépend des tarifs et produits.",
+      "note": ""
+    },
+    {
+      "order": 15,
+      "name": "Type de compte",
+      "family": "Comptes",
+      "type": "à confirmer",
+      "ssisProject": "EnovacomV2",
+      "onPremCount": "19",
+      "d365Count": "19",
+      "gap": "0",
+      "status": "a_faire",
+      "comment": "Référentiel compte.",
+      "note": ""
+    },
+    {
+      "order": 16,
+      "name": "Catégorie Compte",
+      "family": "Comptes",
+      "type": "à confirmer",
+      "ssisProject": "EnovacomV2",
+      "onPremCount": "105",
+      "d365Count": "105",
+      "gap": "0",
+      "status": "a_faire",
+      "comment": "Référentiel compte.",
+      "note": ""
+    },
+    {
+      "order": 17,
+      "name": "Pays",
+      "family": "Référentiels",
+      "type": "à confirmer",
+      "ssisProject": "EnovacomV2",
+      "onPremCount": "177",
+      "d365Count": "177",
+      "gap": "0",
+      "status": "a_faire",
+      "comment": "Référentiel pays.",
+      "note": ""
+    },
+    {
+      "order": 18,
+      "name": "Gamme",
+      "family": "Référentiels",
+      "type": "custom",
+      "ssisProject": "EnovacomV2",
+      "onPremCount": "23",
+      "d365Count": "23",
+      "gap": "0",
+      "status": "a_faire",
+      "comment": "Référentiel custom.",
+      "note": ""
+    },
+    {
+      "order": 19,
+      "name": "Marché",
+      "family": "Référentiels",
+      "type": "custom",
+      "ssisProject": "EnovacomV2",
+      "onPremCount": "48",
+      "d365Count": "48",
+      "gap": "0",
+      "status": "a_faire",
+      "comment": "Référentiel custom.",
+      "note": ""
+    },
+    {
+      "order": 20,
+      "name": "Usage",
+      "family": "Référentiels",
+      "type": "custom",
+      "ssisProject": "EnovacomV2",
+      "onPremCount": "59",
+      "d365Count": "58",
+      "gap": "1",
+      "status": "a_faire",
+      "comment": "Écart visible dans OneNote.",
+      "note": ""
+    },
+    {
+      "order": 21,
+      "name": "Compte Parent",
+      "family": "Comptes",
+      "type": "standard",
+      "ssisProject": "EnovacomV2",
+      "onPremCount": "11466",
+      "d365Count": "11466",
+      "gap": "0",
+      "status": "a_faire",
+      "comment": "Comptes parents.",
+      "note": ""
+    },
+    {
+      "order": 22,
+      "name": "Compte - Enfants N1",
+      "family": "Comptes",
+      "type": "standard",
+      "ssisProject": "EnovacomV2",
+      "onPremCount": "3978",
+      "d365Count": "3978",
+      "gap": "0",
+      "status": "a_faire",
+      "comment": "Comptes enfants niveau 1.",
+      "note": ""
+    },
+    {
+      "order": 23,
+      "name": "Compte - Enfants N2",
+      "family": "Comptes",
+      "type": "standard",
+      "ssisProject": "EnovacomV2",
+      "onPremCount": "611",
+      "d365Count": "611",
+      "gap": "0",
+      "status": "a_faire",
+      "comment": "Comptes enfants niveau 2.",
+      "note": ""
+    },
+    {
+      "order": 24,
+      "name": "Compte - Enfants N3",
+      "family": "Comptes",
+      "type": "standard",
+      "ssisProject": "EnovacomV2",
+      "onPremCount": "41",
+      "d365Count": "41",
+      "gap": "0",
+      "status": "a_faire",
+      "comment": "Comptes enfants niveau 3.",
+      "note": ""
+    },
+    {
+      "order": 25,
+      "name": "Contrat de partenariat",
+      "family": "Partenariats",
+      "type": "à confirmer",
+      "ssisProject": "EnovacomV2",
+      "onPremCount": "437",
+      "d365Count": "436",
+      "gap": "1",
+      "status": "a_faire",
+      "comment": "Écart visible dans OneNote.",
+      "note": ""
+    },
+    {
+      "order": 26,
+      "name": "Contrat Partenaire",
+      "family": "Partenariats",
+      "type": "à confirmer",
+      "ssisProject": "EnovacomV2",
+      "onPremCount": "131",
+      "d365Count": "131",
+      "gap": "0",
+      "status": "a_faire",
+      "comment": "Dans le flux SSIS après contrat de partenariat.",
+      "note": ""
+    },
+    {
+      "order": 27,
+      "name": "NDA",
+      "family": "Partenariats",
+      "type": "à confirmer",
+      "ssisProject": "EnovacomV2",
+      "onPremCount": "202",
+      "d365Count": "200",
+      "gap": "2",
+      "status": "a_faire",
+      "comment": "Écart visible dans OneNote.",
+      "note": ""
+    },
+    {
+      "order": 28,
+      "name": "Marché Public (Après Compte)",
+      "family": "Comptes",
+      "type": "à confirmer",
+      "ssisProject": "EnovacomV2",
+      "onPremCount": "1958",
+      "d365Count": "1956",
+      "gap": "2",
+      "status": "a_faire",
+      "comment": "À exécuter après comptes.",
+      "note": ""
+    },
+    {
+      "order": 29,
+      "name": "Service du contact",
+      "family": "Contacts",
+      "type": "custom",
+      "ssisProject": "EnovacomV2",
+      "onPremCount": "22",
+      "d365Count": "22",
+      "gap": "0",
+      "status": "a_faire",
+      "comment": "Référentiel contact.",
+      "note": ""
+    },
+    {
+      "order": 30,
+      "name": "Fonction du contact",
+      "family": "Contacts",
+      "type": "custom",
+      "ssisProject": "EnovacomV2",
+      "onPremCount": "168",
+      "d365Count": "168",
+      "gap": "0",
+      "status": "a_faire",
+      "comment": "Référentiel contact.",
+      "note": ""
+    },
+    {
+      "order": 31,
+      "name": "Contact",
+      "family": "Contacts",
+      "type": "standard",
+      "ssisProject": "EnovacomV2",
+      "onPremCount": "",
+      "d365Count": "",
+      "gap": "",
+      "status": "a_faire",
+      "comment": "Étape globale visible dans SSIS.",
+      "note": ""
+    },
+    {
+      "order": 32,
+      "name": "Campagne",
+      "family": "Prospection",
+      "type": "standard",
+      "ssisProject": "EnovacomV2",
+      "onPremCount": "345",
+      "d365Count": "345",
+      "gap": "0",
+      "status": "a_faire",
+      "comment": "Campagnes.",
+      "note": ""
+    },
+    {
+      "order": 33,
+      "name": "Prospect sans concernant avec status",
+      "family": "Prospects",
+      "type": "standard",
+      "ssisProject": "EnovacomV2",
+      "onPremCount": "5276",
+      "d365Count": "5276",
+      "gap": "0",
+      "status": "a_faire",
+      "comment": "Prospects sans compte.",
+      "note": ""
+    },
+    {
+      "order": 34,
+      "name": "Prospect avec concernant et status",
+      "family": "Prospects",
+      "type": "standard",
+      "ssisProject": "EnovacomV2",
+      "onPremCount": "6583",
+      "d365Count": "6583",
+      "gap": "0",
+      "status": "a_faire",
+      "comment": "Prospects avec compte.",
+      "note": ""
+    },
+    {
+      "order": 35,
+      "name": "Contact - Sans compte",
+      "family": "Contacts",
+      "type": "standard",
+      "ssisProject": "EnovacomV2",
+      "onPremCount": "10283",
+      "d365Count": "10281",
+      "gap": "2",
+      "status": "a_faire",
+      "comment": "Écart visible dans OneNote.",
+      "note": ""
+    },
+    {
+      "order": 36,
+      "name": "Contact - Avec compte",
+      "family": "Contacts",
+      "type": "standard",
+      "ssisProject": "EnovacomV2",
+      "onPremCount": "61728",
+      "d365Count": "61707",
+      "gap": "21",
+      "status": "a_faire",
+      "comment": "Écart visible dans OneNote.",
+      "note": ""
+    },
+    {
+      "order": 37,
+      "name": "Concurrent",
+      "family": "Opportunités",
+      "type": "standard",
+      "ssisProject": "EnovacomV2",
+      "onPremCount": "51",
+      "d365Count": "51",
+      "gap": "0",
+      "status": "a_faire",
+      "comment": "Concurrents.",
+      "note": ""
+    },
+    {
+      "order": 38,
+      "name": "AsyncOperation",
+      "family": "Technique",
+      "type": "standard",
+      "ssisProject": "EnovacomV2",
+      "onPremCount": "",
+      "d365Count": "",
+      "gap": "",
+      "status": "a_faire",
+      "comment": "Présent dans le schéma SSIS.",
+      "note": ""
+    },
+    {
+      "order": 39,
+      "name": "Opportunité Sans Compte parent",
+      "family": "Opportunités",
+      "type": "standard",
+      "ssisProject": "EnovacomV2",
+      "onPremCount": "5",
+      "d365Count": "1",
+      "gap": "4",
+      "status": "a_faire",
+      "comment": "Écart visible dans OneNote.",
+      "note": ""
+    },
+    {
+      "order": 40,
+      "name": "Opportunité avec compte parents",
+      "family": "Opportunités",
+      "type": "standard",
+      "ssisProject": "EnovacomV2",
+      "onPremCount": "26330",
+      "d365Count": "24962",
+      "gap": "1368",
+      "status": "a_faire",
+      "comment": "Écart visible dans OneNote.",
+      "note": ""
+    },
+    {
+      "order": 41,
+      "name": "Produit d'opportunité",
+      "family": "Opportunités",
+      "type": "standard",
+      "ssisProject": "EnovacomV2",
+      "onPremCount": "13912",
+      "d365Count": "13912",
+      "gap": "",
+      "status": "a_faire",
+      "comment": "Flux PA gestion tarif à exécuter avant ou autour de cette étape.",
+      "note": ""
+    },
+    {
+      "order": 42,
+      "name": "Propriété de produits",
+      "family": "Produits",
+      "type": "standard",
+      "ssisProject": "EnovacomV2",
+      "onPremCount": "",
+      "d365Count": "",
+      "gap": "",
+      "status": "a_faire",
+      "comment": "Étape liée aux propriétés de produits.",
+      "note": ""
+    },
+    {
+      "order": 43,
+      "name": "Devis",
+      "family": "Devis",
+      "type": "standard",
+      "ssisProject": "EnovacomV2",
+      "onPremCount": "38842",
+      "d365Count": "36624",
+      "gap": "2218",
+      "status": "a_faire",
+      "comment": "Écart visible dans OneNote.",
+      "note": ""
+    },
+    {
+      "order": 44,
+      "name": "Produit de Devis",
+      "family": "Devis",
+      "type": "standard",
+      "ssisProject": "EnovacomV2",
+      "onPremCount": "209622",
+      "d365Count": "81737",
+      "gap": "",
+      "status": "a_faire",
+      "comment": "Flux PA gestion tarif à exécuter avant ou autour de cette étape.",
+      "note": ""
+    },
+    {
+      "order": 45,
+      "name": "Commande",
+      "family": "Commandes",
+      "type": "standard",
+      "ssisProject": "EnovacomV2",
+      "onPremCount": "15921",
+      "d365Count": "9165",
+      "gap": "6756",
+      "status": "a_faire",
+      "comment": "Écart visible dans OneNote.",
+      "note": ""
+    },
+    {
+      "order": 46,
+      "name": "Produit de Commande",
+      "family": "Commandes",
+      "type": "standard",
+      "ssisProject": "EnovacomV2",
+      "onPremCount": "47490",
+      "d365Count": "9229",
+      "gap": "",
+      "status": "a_faire",
+      "comment": "Flux PA gestion tarif à exécuter avant ou autour de cette étape.",
+      "note": ""
+    },
+    {
+      "order": 47,
+      "name": "Droits",
+      "family": "Sécurité",
+      "type": "standard",
+      "ssisProject": "EnovacomV2",
+      "onPremCount": "1",
+      "d365Count": "1",
+      "gap": "",
+      "status": "a_faire",
+      "comment": "Visible dans SSIS / OneNote.",
+      "note": ""
+    },
+    {
+      "order": 48,
+      "name": "Demande Avant Vente",
+      "family": "Activités / support",
+      "type": "custom",
+      "ssisProject": "EnovacomV2",
+      "onPremCount": "4396",
+      "d365Count": "3976",
+      "gap": "420",
+      "status": "a_faire",
+      "comment": "Écart visible dans OneNote.",
+      "note": ""
+    },
+    {
+      "order": 49,
+      "name": "Incident",
+      "family": "Activités / support",
+      "type": "standard",
+      "ssisProject": "EnovacomV2",
+      "onPremCount": "43341",
+      "d365Count": "37806",
+      "gap": "",
+      "status": "a_faire",
+      "comment": "Visible dans SSIS / OneNote.",
+      "note": ""
+    },
+    {
+      "order": 50,
+      "name": "Courrier électronique",
+      "family": "Activités",
+      "type": "standard",
+      "ssisProject": "EnovacomV2",
+      "onPremCount": "",
+      "d365Count": "",
+      "gap": "",
+      "status": "a_faire",
+      "comment": "À garder en dernier groupe activité. (OneNote : ok)",
+      "note": ""
+    },
+    {
+      "order": 51,
+      "name": "Rendez-vous",
+      "family": "Activités",
+      "type": "standard",
+      "ssisProject": "EnovacomV2",
+      "onPremCount": "",
+      "d365Count": "",
+      "gap": "",
+      "status": "a_faire",
+      "comment": "À garder en dernier groupe activité. (OneNote : ok)",
+      "note": ""
+    },
+    {
+      "order": 52,
+      "name": "Appels téléphonique",
+      "family": "Activités",
+      "type": "standard",
+      "ssisProject": "EnovacomV2",
+      "onPremCount": "29944",
+      "d365Count": "24718",
+      "gap": "5226",
+      "status": "a_faire",
+      "comment": "Écart visible dans OneNote.",
+      "note": ""
+    },
+    {
+      "order": 53,
+      "name": "Tâche",
+      "family": "Activités",
+      "type": "standard",
+      "ssisProject": "EnovacomV2",
+      "onPremCount": "13110",
+      "d365Count": "10211",
+      "gap": "2899",
+      "status": "a_faire",
+      "comment": "Écart visible dans OneNote.",
+      "note": ""
+    },
+    {
+      "order": 54,
+      "name": "Notes",
+      "family": "Activités / Notes",
+      "type": "standard",
+      "ssisProject": "EnovacomV2",
+      "onPremCount": "",
+      "d365Count": "",
+      "gap": "",
+      "status": "a_faire",
+      "comment": "À exécuter après tables parentes. Flux Notes Tampon vers Note à prévoir. (OneNote : En cours)",
+      "note": ""
+    },
+    {
+      "order": 55,
+      "name": "Historique des phases de processus",
+      "family": "Processus",
+      "type": "standard",
+      "ssisProject": "EnovacomV2",
+      "onPremCount": "",
+      "d365Count": "",
+      "gap": "",
+      "status": "a_faire",
+      "comment": "Lié au flux OPP récupération Histo BPF. (OneNote : ok)",
+      "note": ""
+    },
+    {
+      "order": 56,
+      "name": "Process OPP",
+      "family": "Processus",
+      "type": "standard",
+      "ssisProject": "EnovacomV2",
+      "onPremCount": "",
+      "d365Count": "",
+      "gap": "",
+      "status": "a_faire",
+      "comment": "Visible dans le schéma SSIS en bas.",
+      "note": ""
+    },
+    {
+      "order": 57,
+      "name": "AutoNumbering",
+      "family": "Custom",
+      "type": "custom",
+      "ssisProject": "Enovacom partie 2",
+      "onPremCount": "1",
+      "d365Count": "1",
+      "gap": "0",
+      "status": "a_faire",
+      "comment": "Table custom partie 2.",
+      "note": ""
+    },
+    {
+      "order": 58,
+      "name": "new_autonumberavant",
+      "family": "Custom",
+      "type": "custom",
+      "ssisProject": "Enovacom partie 2",
+      "onPremCount": "12",
+      "d365Count": "12",
+      "gap": "0",
+      "status": "a_faire",
+      "comment": "Table custom partie 2.",
+      "note": ""
+    },
+    {
+      "order": 59,
+      "name": "diag_nomageautochamp",
+      "family": "Custom",
+      "type": "custom",
+      "ssisProject": "Enovacom partie 2",
+      "onPremCount": "3",
+      "d365Count": "3",
+      "gap": "0",
+      "status": "a_faire",
+      "comment": "Table custom partie 2.",
+      "note": ""
+    },
+    {
+      "order": 60,
+      "name": "new_editeur",
+      "family": "Custom",
+      "type": "custom",
+      "ssisProject": "Enovacom partie 2",
+      "onPremCount": "356",
+      "d365Count": "357",
+      "gap": "+1",
+      "status": "a_faire",
+      "comment": "Écart +1 visible dans OneNote.",
+      "note": ""
+    },
+    {
+      "order": 61,
+      "name": "new_domaineapplicatif",
+      "family": "Custom",
+      "type": "custom",
+      "ssisProject": "Enovacom partie 2",
+      "onPremCount": "86",
+      "d365Count": "86",
+      "gap": "",
+      "status": "a_faire",
+      "comment": "Table custom partie 2.",
+      "note": ""
+    },
+    {
+      "order": 62,
+      "name": "new_serviceclient",
+      "family": "Custom",
+      "type": "custom",
+      "ssisProject": "Enovacom partie 2",
+      "onPremCount": "606",
+      "d365Count": "606",
+      "gap": "",
+      "status": "a_faire",
+      "comment": "Table custom partie 2.",
+      "note": ""
+    },
+    {
+      "order": 63,
+      "name": "new_suivisynchrocrm",
+      "family": "Custom",
+      "type": "custom",
+      "ssisProject": "Enovacom partie 2",
+      "onPremCount": "9",
+      "d365Count": "9",
+      "gap": "",
+      "status": "a_faire",
+      "comment": "Table custom partie 2.",
+      "note": ""
+    },
+    {
+      "order": 64,
+      "name": "new_entitestmigration",
+      "family": "Custom",
+      "type": "custom",
+      "ssisProject": "Enovacom partie 2",
+      "onPremCount": "0",
+      "d365Count": "0",
+      "gap": "",
+      "status": "a_faire",
+      "comment": "Table custom partie 2.",
+      "note": ""
+    },
+    {
+      "order": 65,
+      "name": "diag_nomageautoconfiguration",
+      "family": "Custom",
+      "type": "custom",
+      "ssisProject": "Enovacom partie 2",
+      "onPremCount": "8",
+      "d365Count": "8",
+      "gap": "",
+      "status": "a_faire",
+      "comment": "Table custom partie 2.",
+      "note": ""
+    },
+    {
+      "order": 66,
+      "name": "new_applicationtierce",
+      "family": "Custom",
+      "type": "custom",
+      "ssisProject": "Enovacom partie 2",
+      "onPremCount": "388",
+      "d365Count": "388",
+      "gap": "",
+      "status": "a_faire",
+      "comment": "Table custom partie 2.",
+      "note": ""
+    },
+    {
+      "order": 67,
+      "name": "diag_opportunitepartenariat",
+      "family": "Custom",
+      "type": "custom",
+      "ssisProject": "Enovacom partie 2",
+      "onPremCount": "130",
+      "d365Count": "129",
+      "gap": "1",
+      "status": "a_faire",
+      "comment": "Écart visible dans OneNote.",
+      "note": ""
+    },
+    {
+      "order": 68,
+      "name": "new_parcapplicatifcompte",
+      "family": "Custom",
+      "type": "custom",
+      "ssisProject": "Enovacom partie 2",
+      "onPremCount": "4604",
+      "d365Count": "4531",
+      "gap": "73",
+      "status": "a_faire",
+      "comment": "Écart visible dans OneNote.",
+      "note": ""
+    },
+    {
+      "order": 69,
+      "name": "new_suiviincidentrecent",
+      "family": "Custom",
+      "type": "custom",
+      "ssisProject": "Enovacom partie 2",
+      "onPremCount": "2",
+      "d365Count": "2",
+      "gap": "",
+      "status": "a_faire",
+      "comment": "Table custom partie 2.",
+      "note": ""
+    },
+    {
+      "order": 70,
+      "name": "new_configurationclient",
+      "family": "Custom",
+      "type": "custom",
+      "ssisProject": "Enovacom partie 2",
+      "onPremCount": "22108",
+      "d365Count": "21355",
+      "gap": "753",
+      "status": "a_faire",
+      "comment": "Écart visible dans OneNote.",
+      "note": ""
+    },
+    {
+      "order": 71,
+      "name": "new_domaineapplicatifdelapplication",
+      "family": "Custom",
+      "type": "custom",
+      "ssisProject": "Enovacom partie 2",
+      "onPremCount": "621",
+      "d365Count": "621",
+      "gap": "",
+      "status": "a_faire",
+      "comment": "Table custom partie 2.",
+      "note": ""
+    },
+    {
+      "order": 72,
+      "name": "diag_produitdelopportunitepartenariat",
+      "family": "Custom",
+      "type": "custom",
+      "ssisProject": "Enovacom partie 2",
+      "onPremCount": "101",
+      "d365Count": "101",
+      "gap": "",
+      "status": "a_faire",
+      "comment": "Table custom partie 2.",
+      "note": ""
+    },
+    {
+      "order": 73,
+      "name": "new_produitpartenaire",
+      "family": "Custom",
+      "type": "custom",
+      "ssisProject": "Enovacom partie 2",
+      "onPremCount": "17",
+      "d365Count": "17",
+      "gap": "",
+      "status": "a_faire",
+      "comment": "Table custom partie 2.",
+      "note": ""
+    },
+    {
+      "order": 74,
+      "name": "new_applicationconcurrentedelopportunite",
+      "family": "Custom",
+      "type": "custom",
+      "ssisProject": "Enovacom partie 2",
+      "onPremCount": "32",
+      "d365Count": "25",
+      "gap": "7",
+      "status": "a_faire",
+      "comment": "Écart visible dans OneNote.",
+      "note": ""
+    }
+  ],
+  "automations": [
+    {
+      "id": "pa-commande-tarif",
+      "name": "Commande - gestion Tarif + ajout produit commande",
+      "type": "Power Automate",
+      "status": "a_faire",
+      "executionMoment": "Autour de Commande / Produit de Commande",
+      "relatedFamily": "Commandes",
+      "comment": "À afficher comme carte d'automatisme, pas comme table.",
+      "note": ""
+    },
+    {
+      "id": "pa-devis-tarif",
+      "name": "Devis - gestion Tarif + ajout produit devis V2",
+      "type": "Power Automate",
+      "status": "a_faire",
+      "executionMoment": "Autour de Devis / Produit de Devis",
+      "relatedFamily": "Devis",
+      "comment": "À afficher comme carte d'automatisme, pas comme table.",
+      "note": ""
+    },
+    {
+      "id": "pa-notes-tampon",
+      "name": "Notes Tampon - Transvasion vers Note",
+      "type": "Power Automate",
+      "status": "a_faire",
+      "executionMoment": "Au moment de la migration des Notes",
+      "relatedFamily": "Activités / Notes",
+      "comment": "À afficher comme carte d'automatisme liée aux Notes.",
+      "note": ""
+    },
+    {
+      "id": "pa-opp-histo-bpf",
+      "name": "OPP - récupération Histo BPF",
+      "type": "Power Automate",
+      "status": "a_faire",
+      "executionMoment": "Après opportunités / historique des phases de processus",
+      "relatedFamily": "Processus",
+      "comment": "À afficher comme carte d'automatisme liée aux opportunités.",
+      "note": ""
+    },
+    {
+      "id": "pa-opp-tarif",
+      "name": "Opportunité - gestion Tarif + ajout produit d'opp V2",
+      "type": "Power Automate",
+      "status": "a_faire",
+      "executionMoment": "Autour de Opportunité / Produit d'opportunité",
+      "relatedFamily": "Opportunités",
+      "comment": "À afficher comme carte d'automatisme, pas comme table.",
+      "note": ""
+    }
+  ],
+  "checks": [],
+  "risks": []
+}
