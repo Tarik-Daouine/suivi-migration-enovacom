@@ -12,7 +12,7 @@
       "order": 1,
       "name": "Préparation",
       "type": "phase",
-      "status": "a_faire",
+      "status": "termine",
       "progress": 100,
       "dependsOn": [],
       "unlocks": [
