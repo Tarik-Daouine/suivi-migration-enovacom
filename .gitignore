@@ -1,6 +1,7 @@
 # Éditeur local — usage interne, NE PAS publier au client
 editor.html
 editor.js
+serve.py
 
 # Fichiers système
 Thumbs.db
