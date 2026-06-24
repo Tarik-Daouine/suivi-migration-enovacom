@@ -13,13 +13,13 @@
       "name": "Préparation",
       "type": "phase",
       "status": "a_faire",
-      "progress": 0,
+      "progress": 38,
       "dependsOn": [],
       "unlocks": [
         "wf-02"
       ],
       "comment": "Étape racine. Démarre le runbook.",
-      "note": ""
+      "note": "test"
     },
     {
       "id": "wf-02",
