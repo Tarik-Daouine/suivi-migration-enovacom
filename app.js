@@ -38,6 +38,16 @@
       .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
       .replace(/"/g, "&quot;");
   }
+  // Formate une date/heure "YYYY-MM-DDTHH:MM" (ou "YYYY-MM-DD") en "DD/MM/YYYY à HH:MM".
+  function fmtDateTime(s) {
+    if (!s) return "—";
+    s = String(s).replace(" ", "T");
+    var m = s.match(/^(\d{4})-(\d{2})-(\d{2})(?:T(\d{2}):(\d{2}))?/);
+    if (!m) return s;
+    var out = m[3] + "/" + m[2] + "/" + m[1];
+    if (m[4] != null) out += " à " + m[4] + ":" + m[5];
+    return out;
+  }
   // Bloc "Suivi" : commentaire d'avancement saisi par Tarik, visible client.
   function noteBlock(note) {
     if (!note || !String(note).trim()) return "";
@@ -137,7 +147,7 @@
     var p = data.project || {};
     if (p.title) document.getElementById("projectTitle").textContent = p.title;
     document.getElementById("envBadge").textContent = p.environment || "Production";
-    document.getElementById("lastUpdate").textContent = p.lastUpdate || "—";
+    document.getElementById("lastUpdate").textContent = fmtDateTime(p.lastUpdate);
     document.getElementById("footerProject").textContent =
       (p.client || "Enovacom") + " — " + (p.environment || "Production");
 
