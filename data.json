@@ -2,7 +2,7 @@
   "project": {
     "title": "MIGRATION - ENOVACOM : PREMIER WEEK-END",
     "environment": "Production",
-    "lastUpdate": "2026-06-25T17:31",
+    "lastUpdate": "2026-06-25T17:32",
     "client": "Enovacom",
     "logo": "assets/enovacom-logo.svg"
   },
@@ -84,7 +84,7 @@
         "wf-06"
       ],
       "comment": "Séparateur visuel obligatoire.",
-      "note": "Accès aux deux CRM bien coupé , D365 via groupe de sécurité et OnPremise via rôles de sécurités"
+      "note": "Accès aux deux CRM bien coupé , D365 via groupe de sécurité et OnPremise via rôles de sécurités , sauvegarde du D365 éffectué à 17:25 le 25/06"
     },
     {
       "id": "wf-06",
