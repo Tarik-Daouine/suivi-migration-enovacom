@@ -2,7 +2,7 @@
   "project": {
     "title": "MIGRATION - ENOVACOM : PREMIER WEEK-END",
     "environment": "Production",
-    "lastUpdate": "2026-06-24T16:17",
+    "lastUpdate": "2026-06-25T16:15",
     "client": "Enovacom",
     "logo": "assets/enovacom-logo.svg"
   },
@@ -12,8 +12,8 @@
       "order": 1,
       "name": "Préparation",
       "type": "phase",
-      "status": "a_faire",
-      "progress": 0,
+      "status": "termine",
+      "progress": 100,
       "dependsOn": [],
       "unlocks": [
         "wf-02"
@@ -26,8 +26,8 @@
       "order": 2,
       "name": "Export des solutions Sandbox",
       "type": "phase",
-      "status": "a_faire",
-      "progress": 0,
+      "status": "en_cours",
+      "progress": 20,
       "dependsOn": [
         "wf-01"
       ],
@@ -36,15 +36,15 @@
       ],
       "hasSolutions": true,
       "comment": "Contient Export 2025, Paramétrage Export, SiteMap, Listing des automatisations, Power Automate - Détection des doublons.",
-      "note": ""
+      "note": "Export des solutions en cours !"
     },
     {
       "id": "wf-03",
       "order": 3,
       "name": "Mise à jour des packages KingswaySoft",
       "type": "phase",
-      "status": "a_faire",
-      "progress": 0,
+      "status": "en_cours",
+      "progress": 10,
       "dependsOn": [
         "wf-02"
       ],
