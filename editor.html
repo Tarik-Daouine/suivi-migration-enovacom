@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Éditeur local — Migration Enovacom (usage interne)</title>
+  <link rel="icon" type="image/svg+xml" href="assets/enovacom-logo.svg" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Styles spécifiques éditeur (non publié au client) */
+    body.editor { padding-bottom: 90px; }
+    .ed-header {
+      background: var(--teal); color: #fff; padding: 14px 24px;
+      display: flex; align-items: center; gap: 16px; position: sticky; top: 0; z-index: 30;
+      box-shadow: var(--shadow-md);
+    }
+    .ed-header img { height: 28px; filter: brightness(0) invert(1); }
+    .ed-header h1 { font-size: 1rem; margin: 0; font-weight: 700; }
+    .ed-header .tag { font-size: .7rem; background: var(--coral); padding: 2px 9px; border-radius: 99px; font-weight: 700; }
+    .ed-main { max-width: 1080px; margin: 0 auto; padding: 22px 18px; }
+    .ed-toolbar {
+      display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+      background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 14px; margin-bottom: 20px; box-shadow: var(--shadow-sm); position: sticky; top: 56px; z-index: 20;
+    }
+    .ed-btn {
+      border: 0; border-radius: 9px; padding: 9px 15px; font-weight: 700; font-size: .85rem;
+      cursor: pointer; font-family: inherit;
+    }
+    .ed-btn.primary { background: var(--teal); color: #fff; }
+    .ed-btn.accent  { background: var(--coral); color: #fff; }
+    .ed-btn.ghost   { background: var(--surface-2); color: var(--ink); border: 1px solid var(--line); }
+    .ed-btn:hover { filter: brightness(1.06); }
+    .ed-file { font-size: .82rem; }
+    .ed-status { font-size: .8rem; color: var(--ink-soft); margin-left: auto; }
+
+    .ed-tabs { display: flex; gap: 6px; margin-bottom: 16px; flex-wrap: wrap; }
+    .ed-tab {
+      border: 1px solid var(--line); background: var(--surface); color: var(--ink-soft);
+      padding: 8px 14px; border-radius: 99px; cursor: pointer; font-weight: 700; font-size: .82rem;
+    }
+    .ed-tab.active { background: var(--teal); color: #fff; border-color: var(--teal); }
+
+    .ed-panel { display: none; }
+    .ed-panel.active { display: block; }
+
+    .ed-card {
+      background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px; margin-bottom: 10px; box-shadow: var(--shadow-sm);
+      transition: background .2s ease, border-left-color .2s ease;
+    }
+    /* Repère visuel selon le statut / l'avancement */
+    .ed-card.s-green { background: var(--st-done-bg);    border-left-color: var(--st-done); }
+    .ed-card.s-blue  { background: #E7F0FA;              border-left-color: #2D6CDF; }
+    .ed-card.s-red   { background: var(--st-blocked-bg); border-left-color: var(--st-blocked); }
+    /* Jalon = gros séparateur de section (pas une phase ordinaire) */
+    .ed-card.is-milestone {
+      background: linear-gradient(100deg, var(--teal), var(--teal-700));
+      border: 0; border-left: 6px solid var(--coral);
+      box-shadow: var(--shadow-md); margin: 22px 0; padding: 16px 16px 14px;
+    }
+    .ed-card.is-milestone .ord { color: var(--coral); font-size: 1.2rem; }
+    .ed-card.is-milestone .nm { color: #fff; font-size: 1.12rem; letter-spacing: .8px; text-transform: uppercase; }
+    .ed-card.is-milestone .nm small { color: rgba(255,255,255,.65); text-transform: none; letter-spacing: 0; }
+    .ed-card.is-milestone .ms-tag {
+      background: var(--coral); color: #fff; font-size: .62rem; font-weight: 800;
+      letter-spacing: 1px; padding: 2px 8px; border-radius: 99px; vertical-align: middle; margin-right: 4px;
+    }
+    .ed-card.is-milestone .ed-field-label { color: rgba(255,255,255,.8); }
+    .ed-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .ed-row .ord { width: 30px; font-weight: 800; color: var(--teal); }
+    .ed-row .nm { flex: 1; min-width: 180px; font-weight: 600; }
+    .ed-row .nm small { display: block; color: var(--ink-mute); font-weight: 400; font-size: .76rem; }
+    select.ed-select {
+      font-family: inherit; font-size: .82rem; padding: 6px 10px; border-radius: 8px;
+      border: 1px solid var(--line); background: var(--surface); color: var(--ink); font-weight: 700;
+    }
+    .ed-slider { display: flex; align-items: center; gap: 8px; min-width: 200px; }
+    .ed-slider input[type="range"] { accent-color: var(--coral); width: 130px; }
+    .ed-slider .val { font-weight: 800; font-size: .82rem; width: 42px; text-align: right; color: var(--ink); }
+    .ed-comment-input {
+      width: 100%; margin-top: 8px; font-family: inherit; font-size: .82rem;
+      padding: 7px 10px; border-radius: 8px; border: 1px solid var(--line); color: var(--ink);
+    }
+    .ed-note {
+      border-left: 3px solid var(--coral) !important; background: #FFF9F7;
+    }
+    .ed-note::placeholder { color: var(--coral-soft); }
+    .ed-field-label { font-size: .68rem; text-transform: uppercase; letter-spacing: .4px;
+      color: var(--ink-mute); font-weight: 700; margin: 9px 0 2px; }
+    .ed-counts { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 9px; }
+    .ed-counts label {
+      display: flex; align-items: center; gap: 6px; font-size: .74rem;
+      font-weight: 700; text-transform: uppercase; letter-spacing: .3px; color: var(--ink-mute);
+    }
+    .ed-counts input {
+      width: 96px; font-family: inherit; font-size: .85rem; font-weight: 600;
+      padding: 5px 9px; border-radius: 7px; border: 1px solid var(--line);
+      background: var(--surface); color: var(--ink); text-align: right;
+    }
+    .ed-counts input.gap-in { width: 72px; }
+    .ed-counts input:focus { outline: 2px solid var(--coral); border-color: var(--coral); }
+    .ed-counts .tb-calc {
+      border: 1px solid var(--line); background: var(--surface-2); color: var(--teal);
+      font-weight: 800; border-radius: 7px; padding: 5px 10px; cursor: pointer;
+      font-family: inherit; font-size: .82rem; line-height: 1;
+    }
+    .ed-counts .tb-calc:hover { background: var(--coral); color: #fff; border-color: var(--coral); }
+    .ed-section-title { margin: 18px 2px 8px; color: var(--teal); font-size: .95rem; font-weight: 800; }
+
+    .pub-indicator {
+      display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+      margin: 0 0 16px; padding: 9px 14px; border-radius: 9px;
+      font-size: .82rem; background: var(--surface); border: 1px solid var(--line);
+    }
+    .pub-indicator .dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+    .pub-indicator.ok    { background: var(--st-done-bg);    border-color: transparent; color: var(--st-done); }
+    .pub-indicator.ok .dot    { background: var(--st-done); }
+    .pub-indicator.dirty { background: var(--st-gap-bg);     border-color: transparent; color: var(--st-gap); }
+    .pub-indicator.dirty .dot { background: var(--st-gap); }
+    .pub-indicator.warn  { background: var(--st-blocked-bg); border-color: transparent; color: var(--st-blocked); }
+    .pub-indicator.warn .dot  { background: var(--st-blocked); }
+    .pub-indicator .sha {
+      font-family: "Cascadia Code", Consolas, monospace; font-weight: 800;
+      background: rgba(0,0,0,.06); padding: 1px 7px; border-radius: 5px;
+    }
+    .pub-indicator .muted { color: var(--ink-soft); font-weight: 400; }
+
+    .ed-output {
+      position: fixed; bottom: 0; left: 0; right: 0; background: #07211F; color: #CFE7E2;
+      border-top: 2px solid var(--coral); max-height: 42vh; display: none; flex-direction: column;
+      z-index: 50;
+    }
+    .ed-output.show { display: flex; }
+    .ed-output .oh { display: flex; align-items: center; gap: 10px; padding: 8px 14px; background: #0C2C29; }
+    .ed-output .oh strong { color: #fff; font-size: .85rem; }
+    .ed-output textarea {
+      flex: 1; border: 0; background: #07211F; color: #CFE7E2; font-family: "Cascadia Code", Consolas, monospace;
+      font-size: .78rem; padding: 12px 14px; resize: none; min-height: 180px;
+    }
+    .hint { font-size: .8rem; color: var(--ink-soft); background: var(--st-gap-bg); color: var(--st-gap);
+      padding: 10px 14px; border-radius: 9px; margin-bottom: 16px; }
+    input[type="date"].ed-select { font-weight: 600; }
+  </style>
+</head>
+<body class="editor">
+  <header class="ed-header">
+    <img src="assets/enovacom-logo.svg" alt="Enovacom" />
+    <h1>Éditeur local — Migration Enovacom</h1>
+    <span class="tag">USAGE INTERNE · NE PAS PUBLIER</span>
+  </header>
+
+  <div class="ed-main">
+    <p class="hint">⚙️ Outil local réservé à Tarik. Charge le <code>data.json</code> actuel, ajuste les statuts /
+      pourcentages avec les menus et curseurs, puis génère le JSON à coller dans <code>data.json</code>.
+      Ce fichier ne doit pas être déployé sur GitHub Pages.</p>
+
+    <div class="ed-toolbar">
+      <label class="ed-btn ghost ed-file">
+        📂 Charger data.json
+        <input type="file" id="fileInput" accept="application/json,.json" hidden />
+      </label>
+      <button class="ed-btn ghost" id="loadDefault">↺ Charger depuis le serveur</button>
+      <label class="ed-file">Dernière MAJ :
+        <input type="datetime-local" id="lastUpdate" class="ed-select" />
+      </label>
+      <button class="ed-btn ghost" id="nowBtn" title="Mettre la date/heure de maintenant">🕒 Maintenant</button>
+      <button class="ed-btn primary" id="saveDisk">💾 Sauvegarder</button>
+      <label class="ed-file" style="display:inline-flex;align-items:center;gap:6px;font-weight:700">
+        <input type="checkbox" id="autoSave" style="accent-color:var(--coral);width:15px;height:15px"> Auto
+      </label>
+      <button class="ed-btn" id="publishBtn" style="display:none;background:#1E8E5A;color:#fff" title="Envoyer la mise à jour au client (git add + commit + push)">📤 Publier sur GitHub</button>
+      <button class="ed-btn ghost" id="generate" title="Copier/télécharger le JSON manuellement (si le serveur n'est pas lancé)">⚡ Générer le JSON</button>
+      <span class="ed-status" id="edStatus">Aucun fichier chargé.</span>
+    </div>
+
+    <div class="pub-indicator" id="pubStatus">Vérification de l'état de publication…</div>
+
+    <div class="ed-tabs">
+      <button class="ed-tab active" data-tab="workflow">Runbook (18)</button>
+      <button class="ed-tab" data-tab="solutions">Solutions (5)</button>
+      <button class="ed-tab" data-tab="tables">Tables (74)</button>
+      <button class="ed-tab" data-tab="automations">Automatismes (5)</button>
+    </div>
+
+    <div class="ed-panel active" id="panel-workflow"></div>
+    <div class="ed-panel" id="panel-solutions"></div>
+    <div class="ed-panel" id="panel-tables"></div>
+    <div class="ed-panel" id="panel-automations"></div>
+  </div>
+
+  <div class="ed-output" id="output">
+    <div class="oh">
+      <strong>data.json généré</strong>
+      <button class="ed-btn accent" id="copyBtn">📋 Copier</button>
+      <button class="ed-btn primary" id="downloadBtn">⬇ Télécharger data.json</button>
+      <button class="ed-btn ghost" id="closeOut" style="margin-left:auto">Fermer</button>
+    </div>
+    <textarea id="outputText" readonly spellcheck="false"></textarea>
+  </div>
+
+  <script src="editor.js"></script>
+</body>
+</html>

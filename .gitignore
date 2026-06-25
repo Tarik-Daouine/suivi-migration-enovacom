@@ -1,10 +1,3 @@
-# Éditeur local — usage interne, NE PAS publier au client
-editor.html
-editor.js
-serve.py
-publier.bat
-editeur.bat
-
 # Fichiers système
 Thumbs.db
 Desktop.ini
