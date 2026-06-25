@@ -2,7 +2,7 @@
   "project": {
     "title": "MIGRATION - ENOVACOM : PREMIER WEEK-END",
     "environment": "Production",
-    "lastUpdate": "2026-06-25T17:03",
+    "lastUpdate": "2026-06-25T17:08",
     "client": "Enovacom",
     "logo": "assets/enovacom-logo.svg"
   },
@@ -91,8 +91,8 @@
       "order": 6,
       "name": "Suppression des rôles utilisateurs",
       "type": "phase",
-      "status": "a_faire",
-      "progress": 0,
+      "status": "en_cours",
+      "progress": 50,
       "dependsOn": [
         "wf-05"
       ],
@@ -100,15 +100,15 @@
         "wf-07"
       ],
       "comment": "Action qui provoque la coupure d'accès.",
-      "note": ""
+      "note": "Utilisateurs désactivés OnPremise - En cours D365 Prod"
     },
     {
       "id": "wf-07",
       "order": 7,
       "name": "Les utilisateurs perdent automatiquement l'accès",
       "type": "consequence",
-      "status": "a_faire",
-      "progress": 0,
+      "status": "en_cours",
+      "progress": 52,
       "dependsOn": [
         "wf-06"
       ],
