@@ -2,7 +2,7 @@
   "project": {
     "title": "MIGRATION - ENOVACOM : PREMIER WEEK-END",
     "environment": "Production",
-    "lastUpdate": "2026-06-25T16:15",
+    "lastUpdate": "2026-06-25T16:20",
     "client": "Enovacom",
     "logo": "assets/enovacom-logo.svg"
   },
@@ -59,7 +59,7 @@
       "order": 4,
       "name": "Sauvegarde des packages KingswaySoft (OneDrive)",
       "type": "phase",
-      "status": "a_faire",
+      "status": "bloque",
       "progress": 0,
       "dependsOn": [
         "wf-03"
