@@ -2,7 +2,7 @@
   "project": {
     "title": "MIGRATION - ENOVACOM : PREMIER WEEK-END",
     "environment": "Production",
-    "lastUpdate": "2026-06-25T16:41",
+    "lastUpdate": "2026-06-25T17:01",
     "client": "Enovacom",
     "logo": "assets/enovacom-logo.svg"
   },
@@ -26,8 +26,8 @@
       "order": 2,
       "name": "Export des solutions Sandbox",
       "type": "phase",
-      "status": "en_cours",
-      "progress": 20,
+      "status": "termine",
+      "progress": 100,
       "dependsOn": [
         "wf-01"
       ],
@@ -44,7 +44,7 @@
       "name": "Mise à jour des packages KingswaySoft",
       "type": "phase",
       "status": "en_cours",
-      "progress": 10,
+      "progress": 24,
       "dependsOn": [
         "wf-02"
       ],
@@ -59,7 +59,7 @@
       "order": 4,
       "name": "Sauvegarde des packages KingswaySoft (OneDrive)",
       "type": "phase",
-      "status": "bloque",
+      "status": "en_cours",
       "progress": 0,
       "dependsOn": [
         "wf-03"
