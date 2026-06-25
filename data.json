@@ -2,7 +2,7 @@
   "project": {
     "title": "MIGRATION - ENOVACOM : PREMIER WEEK-END",
     "environment": "Production",
-    "lastUpdate": "2026-06-25T16:20",
+    "lastUpdate": "2026-06-25T16:39",
     "client": "Enovacom",
     "logo": "assets/enovacom-logo.svg"
   },
@@ -299,35 +299,35 @@
     {
       "order": 1,
       "name": "Export 2025",
-      "status": "a_faire",
+      "status": "termine",
       "comment": "Obligatoirement en 1",
       "note": ""
     },
     {
       "order": 2,
       "name": "Paramétrage Export",
-      "status": "a_faire",
+      "status": "termine",
       "comment": "Respecter cet ordre",
       "note": ""
     },
     {
       "order": 3,
       "name": "SiteMap",
-      "status": "a_faire",
+      "status": "termine",
       "comment": "Respecter cet ordre",
       "note": ""
     },
     {
       "order": 4,
       "name": "Listing des automatisations",
-      "status": "a_faire",
+      "status": "termine",
       "comment": "Respecter cet ordre",
       "note": ""
     },
     {
       "order": 5,
       "name": "Power Automate - Détection des doublons",
-      "status": "a_faire",
+      "status": "en_cours",
       "comment": "Respecter cet ordre",
       "note": ""
     }
