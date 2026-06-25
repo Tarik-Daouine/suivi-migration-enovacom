@@ -2,7 +2,7 @@
   "project": {
     "title": "MIGRATION - ENOVACOM : PREMIER WEEK-END",
     "environment": "Production",
-    "lastUpdate": "2026-06-25T17:30",
+    "lastUpdate": "2026-06-25T17:31",
     "client": "Enovacom",
     "logo": "assets/enovacom-logo.svg"
   },
@@ -44,7 +44,7 @@
       "name": "Mise à jour des packages KingswaySoft",
       "type": "phase",
       "status": "termine",
-      "progress": 24,
+      "progress": 100,
       "dependsOn": [
         "wf-02"
       ],
@@ -60,7 +60,7 @@
       "name": "Sauvegarde des packages KingswaySoft (OneDrive)",
       "type": "phase",
       "status": "termine",
-      "progress": 0,
+      "progress": 100,
       "dependsOn": [
         "wf-03"
       ],
@@ -84,7 +84,7 @@
         "wf-06"
       ],
       "comment": "Séparateur visuel obligatoire.",
-      "note": ""
+      "note": "Accès aux deux CRM bien coupé , D365 via groupe de sécurité et OnPremise via rôles de sécurités"
     },
     {
       "id": "wf-06",
@@ -123,7 +123,7 @@
       "order": 8,
       "name": "Import des solutions en Production",
       "type": "phase",
-      "status": "a_faire",
+      "status": "en_cours",
       "progress": 0,
       "dependsOn": [
         "wf-07"
