@@ -2,7 +2,7 @@
   "project": {
     "title": "MIGRATION - ENOVACOM : PREMIER WEEK-END",
     "environment": "Production",
-    "lastUpdate": "2026-06-25T17:02",
+    "lastUpdate": "2026-06-25T17:03",
     "client": "Enovacom",
     "logo": "assets/enovacom-logo.svg"
   },
@@ -75,7 +75,7 @@
       "order": 5,
       "name": "DÉBUT DE LA MEP",
       "type": "milestone",
-      "status": "a_faire",
+      "status": "en_cours",
       "progress": null,
       "dependsOn": [
         "wf-04"
