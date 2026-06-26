@@ -12,8 +12,8 @@
       "order": 1,
       "name": "Préparation",
       "type": "phase",
-      "status": "a_faire",
-      "progress": 0,
+      "status": "termine",
+      "progress": 100,
       "dependsOn": [],
       "unlocks": [
         "wf-02"
@@ -26,8 +26,8 @@
       "order": 2,
       "name": "Export des solutions Sandbox",
       "type": "phase",
-      "status": "a_faire",
-      "progress": 0,
+      "status": "termine",
+      "progress": 100,
       "dependsOn": [
         "wf-01"
       ],
@@ -36,15 +36,15 @@
       ],
       "hasSolutions": true,
       "comment": "Contient Export 2025, Paramétrage Export, SiteMap, Listing des automatisations, Power Automate - Détection des doublons.",
-      "note": ""
+      "note": "Export des solutions en cours !"
     },
     {
       "id": "wf-03",
       "order": 3,
       "name": "Mise à jour des packages KingswaySoft",
       "type": "phase",
-      "status": "a_faire",
-      "progress": 0,
+      "status": "termine",
+      "progress": 100,
       "dependsOn": [
         "wf-02"
       ],
@@ -59,8 +59,8 @@
       "order": 4,
       "name": "Sauvegarde des packages KingswaySoft (OneDrive)",
       "type": "phase",
-      "status": "a_faire",
-      "progress": 0,
+      "status": "termine",
+      "progress": 100,
       "dependsOn": [
         "wf-03"
       ],
@@ -75,7 +75,7 @@
       "order": 5,
       "name": "DÉBUT DE LA MEP",
       "type": "milestone",
-      "status": "a_faire",
+      "status": "en_cours",
       "progress": null,
       "dependsOn": [
         "wf-04"
@@ -84,15 +84,15 @@
         "wf-06"
       ],
       "comment": "Séparateur visuel obligatoire.",
-      "note": ""
+      "note": "Accès aux deux CRM bien coupé , D365 via groupe de sécurité et OnPremise via rôles de sécurités , sauvegarde du D365 éffectué à 17:25 le 25/06"
     },
     {
       "id": "wf-06",
       "order": 6,
       "name": "Suppression des rôles utilisateurs",
       "type": "phase",
-      "status": "a_faire",
-      "progress": 0,
+      "status": "termine",
+      "progress": 100,
       "dependsOn": [
         "wf-05"
       ],
@@ -100,15 +100,15 @@
         "wf-07"
       ],
       "comment": "Action qui provoque la coupure d'accès.",
-      "note": ""
+      "note": "Utilisateurs désactivés OnPremise - En cours D365 Prod"
     },
     {
       "id": "wf-07",
       "order": 7,
       "name": "Les utilisateurs perdent automatiquement l'accès",
       "type": "consequence",
-      "status": "a_faire",
-      "progress": 0,
+      "status": "termine",
+      "progress": 100,
       "dependsOn": [
         "wf-06"
       ],
@@ -123,8 +123,8 @@
       "order": 8,
       "name": "Import des solutions en Production",
       "type": "phase",
-      "status": "a_faire",
-      "progress": 0,
+      "status": "en_cours",
+      "progress": 40,
       "dependsOn": [
         "wf-07"
       ],
@@ -133,7 +133,7 @@
       ],
       "hasSolutions": true,
       "comment": "Import dans l'ordre défini.",
-      "note": ""
+      "note": "Import finaliser : EXPORT 2025 Importer avec de grandes difficultés , Paramétrage Export 2025 Importation en cours :  SiteMap"
     },
     {
       "id": "wf-09",
@@ -299,35 +299,35 @@
     {
       "order": 1,
       "name": "Export 2025",
-      "status": "a_faire",
+      "status": "termine",
       "comment": "Obligatoirement en 1",
       "note": ""
     },
     {
       "order": 2,
       "name": "Paramétrage Export",
-      "status": "a_faire",
+      "status": "termine",
       "comment": "Respecter cet ordre",
       "note": ""
     },
     {
       "order": 3,
       "name": "SiteMap",
-      "status": "a_faire",
+      "status": "en_cours",
       "comment": "Respecter cet ordre",
       "note": ""
     },
     {
       "order": 4,
       "name": "Listing des automatisations",
-      "status": "a_faire",
+      "status": "en_cours",
       "comment": "Respecter cet ordre",
       "note": ""
     },
     {
       "order": 5,
       "name": "Power Automate - Détection des doublons",
-      "status": "a_faire",
+      "status": "en_cours",
       "comment": "Respecter cet ordre",
       "note": ""
     }
