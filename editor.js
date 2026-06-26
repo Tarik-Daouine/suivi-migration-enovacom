@@ -43,7 +43,7 @@
     return "";
   }
   function paintCard(card, status, progress) {
-    card.classList.remove("s-green", "s-blue", "s-red");
+    card.classList.remove("s-green", "s-blue", "s-red", "s-orange");
     var c = cardStateClass(status, progress);
     if (c) card.classList.add(c);
   }
