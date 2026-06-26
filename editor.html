@@ -21,7 +21,12 @@
     .ed-toolbar {
       display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
       background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
-      padding: 14px; margin-bottom: 20px; box-shadow: var(--shadow-sm); position: sticky; top: 56px; z-index: 20;
+      padding: 14px; margin-bottom: 10px; box-shadow: var(--shadow-sm);
+    }
+    /* Bloc de contrôle collant : barre d'outils + indicateur + onglets, fixés sous le header */
+    .ed-controls {
+      position: sticky; top: 56px; z-index: 22;
+      background: var(--bg); padding: 10px 0 8px;
     }
     .ed-btn {
       border: 0; border-radius: 9px; padding: 9px 15px; font-weight: 700; font-size: .85rem;
@@ -34,7 +39,7 @@
     .ed-file { font-size: .82rem; }
     .ed-status { font-size: .8rem; color: var(--ink-soft); margin-left: auto; }
 
-    .ed-tabs { display: flex; gap: 6px; margin-bottom: 16px; flex-wrap: wrap; }
+    .ed-tabs { display: flex; gap: 6px; margin-bottom: 0; flex-wrap: wrap; }
     .ed-tab {
       border: 1px solid var(--line); background: var(--surface); color: var(--ink-soft);
       padding: 8px 14px; border-radius: 99px; cursor: pointer; font-weight: 700; font-size: .82rem;
@@ -54,6 +59,7 @@
     .ed-card.s-green { background: var(--st-done-bg);    border-left-color: var(--st-done); }
     .ed-card.s-blue  { background: #E7F0FA;              border-left-color: #2D6CDF; }
     .ed-card.s-red   { background: var(--st-blocked-bg); border-left-color: var(--st-blocked); }
+    .ed-card.s-orange{ background: var(--st-gap-bg);     border-left-color: var(--st-gap); }
     /* Jalon = gros séparateur de section (pas une phase ordinaire) */
     .ed-card.is-milestone {
       background: linear-gradient(100deg, var(--teal), var(--teal-700));
@@ -156,6 +162,7 @@
       pourcentages avec les menus et curseurs, puis génère le JSON à coller dans <code>data.json</code>.
       Ce fichier ne doit pas être déployé sur GitHub Pages.</p>
 
+    <div class="ed-controls">
     <div class="ed-toolbar">
       <label class="ed-btn ghost ed-file">
         📂 Charger data.json
@@ -182,6 +189,7 @@
       <button class="ed-tab" data-tab="solutions">Solutions (5)</button>
       <button class="ed-tab" data-tab="tables">Tables (74)</button>
       <button class="ed-tab" data-tab="automations">Automatismes (5)</button>
+    </div>
     </div>
 
     <div class="ed-panel active" id="panel-workflow"></div>
