@@ -2,7 +2,7 @@
   "project": {
     "title": "MIGRATION - ENOVACOM : PREMIER WEEK-END",
     "environment": "Production",
-    "lastUpdate": "2026-06-26T15:18",
+    "lastUpdate": "2026-06-26T15:50",
     "client": "Enovacom",
     "logo": "assets/enovacom-logo.svg"
   },
@@ -140,8 +140,8 @@
       "order": 9,
       "name": "Publication des personnalisations",
       "type": "phase",
-      "status": "a_faire",
-      "progress": 0,
+      "status": "termine",
+      "progress": 100,
       "dependsOn": [
         "wf-08"
       ],
@@ -188,7 +188,7 @@
       "order": 12,
       "name": "Migration des données",
       "type": "phase",
-      "status": "a_faire",
+      "status": "en_cours",
       "progress": 0,
       "dependsOn": [
         "wf-11"
