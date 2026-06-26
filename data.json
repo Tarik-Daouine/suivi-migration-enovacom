@@ -2,7 +2,7 @@
   "project": {
     "title": "MIGRATION - ENOVACOM : PREMIER WEEK-END",
     "environment": "Production",
-    "lastUpdate": "2026-06-26T17:10",
+    "lastUpdate": "2026-06-26T18:10",
     "client": "Enovacom",
     "logo": "assets/enovacom-logo.svg"
   },
@@ -534,8 +534,8 @@
       "family": "Comptes",
       "type": "à confirmer",
       "ssisProject": "EnovacomV2",
-      "onPremCount": "23",
-      "d365Count": "23",
+      "onPremCount": "105",
+      "d365Count": "105",
       "gap": "0",
       "status": "migre",
       "comment": "Référentiel compte.",
@@ -600,11 +600,11 @@
       "type": "standard",
       "ssisProject": "EnovacomV2",
       "onPremCount": "7219",
-      "d365Count": "3975",
-      "gap": "3244",
-      "status": "ecart",
+      "d365Count": "7219",
+      "gap": "0",
+      "status": "migre",
       "comment": "Comptes parents.",
-      "note": "3244 écart à 17H au 26/06"
+      "note": "Petit soucis au niveau des Catégories de compte , Corrigé tout test migré"
     },
     {
       "order": 22,
