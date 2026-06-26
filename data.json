@@ -2,7 +2,7 @@
   "project": {
     "title": "MIGRATION - ENOVACOM : PREMIER WEEK-END",
     "environment": "Production",
-    "lastUpdate": "2026-06-26T16:23",
+    "lastUpdate": "2026-06-26T16:26",
     "client": "Enovacom",
     "logo": "assets/enovacom-logo.svg"
   },
@@ -547,10 +547,10 @@
       "family": "Référentiels",
       "type": "à confirmer",
       "ssisProject": "EnovacomV2",
-      "onPremCount": "0",
-      "d365Count": "0",
+      "onPremCount": "177",
+      "d365Count": "177",
       "gap": "0",
-      "status": "a_faire",
+      "status": "migre",
       "comment": "Référentiel pays.",
       "note": ""
     },
