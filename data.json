@@ -2,7 +2,7 @@
   "project": {
     "title": "MIGRATION - ENOVACOM : PREMIER WEEK-END",
     "environment": "Production",
-    "lastUpdate": "2026-06-26T16:48",
+    "lastUpdate": "2026-06-26T17:10",
     "client": "Enovacom",
     "logo": "assets/enovacom-logo.svg"
   },
@@ -604,7 +604,7 @@
       "gap": "3244",
       "status": "ecart",
       "comment": "Comptes parents.",
-      "note": ""
+      "note": "3244 écart à 17H au 26/06"
     },
     {
       "order": 22,
