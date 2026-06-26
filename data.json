@@ -2,7 +2,7 @@
   "project": {
     "title": "MIGRATION - ENOVACOM : PREMIER WEEK-END",
     "environment": "Production",
-    "lastUpdate": "2026-06-26T09:58",
+    "lastUpdate": "2026-06-26T11:01",
     "client": "Enovacom",
     "logo": "assets/enovacom-logo.svg"
   },
@@ -124,7 +124,7 @@
       "name": "Import des solutions en Production",
       "type": "phase",
       "status": "en_cours",
-      "progress": 20,
+      "progress": 40,
       "dependsOn": [
         "wf-07"
       ],
@@ -133,7 +133,7 @@
       ],
       "hasSolutions": true,
       "comment": "Import dans l'ordre défini.",
-      "note": "EXPORT 2025 Importer avec de grandes difficultés , importation en cours : Paramétrage Export 2025"
+      "note": "Import finaliser : EXPORT 2025 Importer avec de grandes difficultés , Paramétrage Export 2025 Importation en cours :  SiteMap"
     },
     {
       "id": "wf-09",
@@ -306,7 +306,7 @@
     {
       "order": 2,
       "name": "Paramétrage Export",
-      "status": "en_cours",
+      "status": "termine",
       "comment": "Respecter cet ordre",
       "note": ""
     },
