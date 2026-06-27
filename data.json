@@ -2,7 +2,7 @@
   "project": {
     "title": "MIGRATION - ENOVACOM : PREMIER WEEK-END",
     "environment": "Production",
-    "lastUpdate": "2026-06-27T16:55",
+    "lastUpdate": "2026-06-28T00:40",
     "client": "Enovacom",
     "logo": "assets/enovacom-logo.svg"
   },
@@ -859,12 +859,12 @@
       "family": "Opportunités",
       "type": "standard",
       "ssisProject": "EnovacomV2",
-      "onPremCount": "0",
-      "d365Count": "0",
+      "onPremCount": "4559",
+      "d365Count": "4559",
       "gap": "0",
-      "status": "a_faire",
+      "status": "en_cours",
       "comment": "Flux PA gestion tarif à exécuter après cette étape.",
-      "note": ""
+      "note": "Import dans la table tampon - ok"
     },
     {
       "order": 42,
@@ -898,12 +898,12 @@
       "family": "Devis",
       "type": "standard",
       "ssisProject": "EnovacomV2",
-      "onPremCount": "0",
-      "d365Count": "0",
+      "onPremCount": "161547",
+      "d365Count": "161547",
       "gap": "0",
-      "status": "a_faire",
+      "status": "en_cours",
       "comment": "Flux PA gestion tarif à exécuter avant ou autour de cette étape.",
-      "note": ""
+      "note": "Import dans la table tampon - ok"
     },
     {
       "order": 45,
