@@ -2,7 +2,7 @@
   "project": {
     "title": "MIGRATION - ENOVACOM : PREMIER WEEK-END",
     "environment": "Production",
-    "lastUpdate": "2026-06-26T18:10",
+    "lastUpdate": "2026-06-27T02:16",
     "client": "Enovacom",
     "logo": "assets/enovacom-logo.svg"
   },
@@ -612,10 +612,10 @@
       "family": "Comptes",
       "type": "standard",
       "ssisProject": "EnovacomV2",
-      "onPremCount": "0",
-      "d365Count": "0",
+      "onPremCount": "913",
+      "d365Count": "913",
       "gap": "0",
-      "status": "a_faire",
+      "status": "migre",
       "comment": "Comptes enfants niveau 1.",
       "note": ""
     },
@@ -625,10 +625,10 @@
       "family": "Comptes",
       "type": "standard",
       "ssisProject": "EnovacomV2",
-      "onPremCount": "0",
-      "d365Count": "0",
+      "onPremCount": "91",
+      "d365Count": "91",
       "gap": "0",
-      "status": "a_faire",
+      "status": "migre",
       "comment": "Comptes enfants niveau 2.",
       "note": ""
     },
@@ -638,10 +638,10 @@
       "family": "Comptes",
       "type": "standard",
       "ssisProject": "EnovacomV2",
-      "onPremCount": "0",
-      "d365Count": "0",
+      "onPremCount": "3",
+      "d365Count": "3",
       "gap": "0",
-      "status": "a_faire",
+      "status": "migre",
       "comment": "Comptes enfants niveau 3.",
       "note": ""
     },
@@ -651,12 +651,12 @@
       "family": "Partenariats",
       "type": "à confirmer",
       "ssisProject": "EnovacomV2",
-      "onPremCount": "0",
-      "d365Count": "0",
+      "onPremCount": "431",
+      "d365Count": "32",
       "gap": "0",
-      "status": "a_faire",
+      "status": "migre",
       "comment": "Écart visible dans OneNote.",
-      "note": ""
+      "note": "faux décalage car filtre sur 01/01/2020 non créer pour cette table - aucun impact"
     },
     {
       "order": 26,
@@ -664,12 +664,12 @@
       "family": "Partenariats",
       "type": "à confirmer",
       "ssisProject": "EnovacomV2",
-      "onPremCount": "0",
-      "d365Count": "0",
-      "gap": "0",
-      "status": "a_faire",
+      "onPremCount": "131",
+      "d365Count": "40",
+      "gap": "91",
+      "status": "migre",
       "comment": "Dans le flux SSIS après contrat de partenariat.",
-      "note": ""
+      "note": "faux décalage car filtre sur 01/01/2020 non créer pour cette table - aucun impact"
     },
     {
       "order": 27,
@@ -677,10 +677,10 @@
       "family": "Partenariats",
       "type": "à confirmer",
       "ssisProject": "EnovacomV2",
-      "onPremCount": "0",
-      "d365Count": "0",
+      "onPremCount": "203",
+      "d365Count": "120",
       "gap": "0",
-      "status": "a_faire",
+      "status": "en_cours",
       "comment": "Écart visible dans OneNote.",
       "note": ""
     },
@@ -695,7 +695,7 @@
       "gap": "0",
       "status": "a_faire",
       "comment": "À exécuter après comptes.",
-      "note": ""
+      "note": "faux décalage "
     },
     {
       "order": 29,
