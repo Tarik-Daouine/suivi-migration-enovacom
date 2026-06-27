@@ -2,7 +2,7 @@
   "project": {
     "title": "MIGRATION - ENOVACOM : PREMIER WEEK-END",
     "environment": "Production",
-    "lastUpdate": "2026-06-27T04:45",
+    "lastUpdate": "2026-06-27T10:47",
     "client": "Enovacom",
     "logo": "assets/enovacom-logo.svg"
   },
@@ -823,9 +823,9 @@
       "onPremCount": "0",
       "d365Count": "0",
       "gap": "0",
-      "status": "a_faire",
+      "status": "migre",
       "comment": "Présent dans le schéma SSIS.",
-      "note": ""
+      "note": "à ne pas importé"
     },
     {
       "order": 39,
@@ -851,7 +851,7 @@
       "gap": "2008",
       "status": "ecart",
       "comment": "Écart visible dans OneNote.",
-      "note": ""
+      "note": "erreur d'import lié au workflow \"Clôture opportunité\" , relance après désactivation de se workflow : "
     },
     {
       "order": 41,
@@ -863,7 +863,7 @@
       "d365Count": "0",
       "gap": "0",
       "status": "a_faire",
-      "comment": "Flux PA gestion tarif à exécuter avant ou autour de cette étape.",
+      "comment": "Flux PA gestion tarif à exécuter après cette étape.",
       "note": ""
     },
     {
