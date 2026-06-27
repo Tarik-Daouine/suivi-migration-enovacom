@@ -48,6 +48,19 @@
     if (m[4] != null) out += " à " + m[4] + ":" + m[5];
     return out;
   }
+  // % importé = D365 / OnPrem × 100 (arrondi). null si non calculable.
+  function importPct(t) {
+    var a = String(t.onPremCount == null ? "" : t.onPremCount).replace(/\s/g, "");
+    var b = String(t.d365Count == null ? "" : t.d365Count).replace(/\s/g, "");
+    if (!/^\d+$/.test(a) || Number(a) === 0 || !/^-?\d+$/.test(b)) return null;
+    return Math.round((Number(b) / Number(a)) * 100);
+  }
+  function pctCell(t) {
+    var p = importPct(t);
+    if (p === null) return '<span class="muted">—</span>';
+    var cls = p >= 100 ? "pct-ok" : (p > 0 ? "pct-part" : "pct-zero");
+    return '<span class="' + cls + '">' + p + "%</span>";
+  }
   // Bloc "Suivi" : commentaire d'avancement saisi par Tarik, visible client.
   function noteBlock(note) {
     if (!note || !String(note).trim()) return "";
@@ -264,6 +277,7 @@
           '<td class="num">' + (fmtCount(t.onPremCount) || '<span class="muted">—</span>') + "</td>" +
           '<td class="num">' + (fmtCount(t.d365Count) || '<span class="muted">—</span>') + "</td>" +
           '<td class="num gap">' + gapDisp + "</td>" +
+          '<td class="num">' + pctCell(t) + "</td>" +
           "<td>" + statusPill(t.status) + "</td>" +
         "</tr>";
       }).join("");
@@ -291,7 +305,7 @@
             '<div class="tbl-wrap"><table class="tbl">' +
               "<thead><tr>" +
                 "<th>#</th><th>Table</th><th>Type</th>" +
-                '<th class="num">OnPrem</th><th class="num">D365</th><th class="num">Écart</th><th>Statut</th>' +
+                '<th class="num">OnPrem</th><th class="num">D365</th><th class="num">Écart</th><th class="num">% importé</th><th>Statut</th>' +
               "</tr></thead><tbody>" + rows + "</tbody></table></div>" +
             autosBlock +
           "</div>" +
@@ -391,7 +405,8 @@
       ["Type", t.type || "—"],
       ["Volume OnPrem", fmtCount(t.onPremCount) || "—"],
       ["Volume D365", fmtCount(t.d365Count) || "—"],
-      ["Écart", (t.gap == null || String(t.gap).trim() === "") ? "—" : t.gap]
+      ["Écart", (t.gap == null || String(t.gap).trim() === "") ? "—" : t.gap],
+      ["% importé", importPct(t) === null ? "—" : importPct(t) + "%"]
     ];
 
     var html = '<dl>';

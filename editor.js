@@ -71,6 +71,18 @@
     return null;
   }
 
+  // % importés = D365 / OnPrem × 100 (arrondi). null si non calculable.
+  function computePct(onPremStr, d365Str) {
+    var a = String(onPremStr == null ? "" : onPremStr).replace(/\s/g, "");
+    var b = String(d365Str == null ? "" : d365Str).replace(/\s/g, "");
+    if (!/^\d+$/.test(a) || Number(a) === 0 || !/^-?\d+$/.test(b)) return null;
+    return Math.round((Number(b) / Number(a)) * 100);
+  }
+  function pctDisplay(onPremStr, d365Str) {
+    var p = computePct(onPremStr, d365Str);
+    return p === null ? "—" : p + "%";
+  }
+
   /* ---------- Rendu des panneaux ---------- */
   function renderWorkflow() {
     var host = $("panel-workflow");
@@ -171,6 +183,7 @@
             '<label>D365 <input class="tb-d365" inputmode="numeric" value="' + escAttr(t.d365Count) + '"></label>' +
             '<label>Écart <input class="tb-gap gap-in" value="' + escAttr(t.gap) + '" placeholder="—"></label>' +
             '<button type="button" class="tb-calc" title="Calculer l\'écart = OnPrem − D365">= auto</button>' +
+            '<span class="tb-pct-box">% importés <b class="tb-pct">' + pctDisplay(t.onPremCount, t.d365Count) + "</b></span>" +
           "</div>" +
           '<div class="ed-field-label">Description / contexte</div>' +
           '<input class="ed-comment-input tb-comment" value="' + escAttr(t.comment) + '" placeholder="Description / contexte">' +
@@ -181,6 +194,10 @@
           data.tables[i].status = e.target.value;
           paintCard(card, e.target.value);
         });
+        // Met à jour l'affichage du % importés.
+        var updatePct = function () {
+          card.querySelector(".tb-pct").textContent = pctDisplay(data.tables[i].onPremCount, data.tables[i].d365Count);
+        };
         // Recalcule D365 = OnPrem − Écart et met à jour le champ D365.
         var syncD365 = function () {
           var d = computeD365(data.tables[i].onPremCount, data.tables[i].gap);
@@ -188,13 +205,18 @@
             data.tables[i].d365Count = String(d);
             card.querySelector(".tb-d365").value = String(d);
           }
+          updatePct();
         };
         card.querySelector(".tb-onprem").addEventListener("input", function (e) {
           data.tables[i].onPremCount = e.target.value.trim();
           var g = String(data.tables[i].gap || "").replace(/\s/g, "");
           if (g !== "" && g !== "0") syncD365();  // ne pas forcer D365=OnPrem si écart par défaut (0)
+          updatePct();
         });
-        card.querySelector(".tb-d365").addEventListener("input", function (e) { data.tables[i].d365Count = e.target.value.trim(); });
+        card.querySelector(".tb-d365").addEventListener("input", function (e) {
+          data.tables[i].d365Count = e.target.value.trim();
+          updatePct();
+        });
         card.querySelector(".tb-gap").addEventListener("input", function (e) {
           data.tables[i].gap = e.target.value.trim();
           syncD365();  // quand tu saisis l'écart, D365 se calcule (OnPrem − écart)

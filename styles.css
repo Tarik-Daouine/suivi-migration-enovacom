@@ -331,6 +331,9 @@ code { font-family: "Cascadia Code", Consolas, monospace; font-size: .9em; }
 .tbl .num { font-variant-numeric: tabular-nums; }
 .tbl .gap-pos { color: var(--st-gap); font-weight: 700; }
 .tbl .gap-zero { color: var(--ink-mute); }
+.tbl .pct-ok { color: var(--st-done); font-weight: 700; }
+.tbl .pct-part { color: var(--st-gap); font-weight: 700; }
+.tbl .pct-zero { color: var(--ink-mute); font-weight: 700; }
 .tbl .muted { color: var(--ink-mute); }
 .type-tag {
   font-size: .68rem; font-weight: 700; padding: 1px 7px; border-radius: 6px;
