@@ -2,7 +2,7 @@
   "project": {
     "title": "MIGRATION - ENOVACOM : PREMIER WEEK-END",
     "environment": "Production",
-    "lastUpdate": "2026-06-27T10:47",
+    "lastUpdate": "2026-06-27T10:54",
     "client": "Enovacom",
     "logo": "assets/enovacom-logo.svg"
   },
@@ -847,11 +847,11 @@
       "type": "standard",
       "ssisProject": "EnovacomV2",
       "onPremCount": "3676",
-      "d365Count": "1668",
-      "gap": "2008",
+      "d365Count": "3203",
+      "gap": "473",
       "status": "ecart",
       "comment": "Écart visible dans OneNote.",
-      "note": "erreur d'import lié au workflow \"Clôture opportunité\" , relance après désactivation de se workflow : "
+      "note": "Première passe :erreur d'import lié au workflow \"Clôture opportunité\" sur 3676 OPP - 1668 Importés , relance après désactivation de se workflow : 3203 importés"
     },
     {
       "order": 41,
