@@ -2,7 +2,7 @@
   "project": {
     "title": "MIGRATION - ENOVACOM : PREMIER WEEK-END",
     "environment": "Production",
-    "lastUpdate": "2026-06-27T02:36",
+    "lastUpdate": "2026-06-27T04:45",
     "client": "Enovacom",
     "logo": "assets/enovacom-logo.svg"
   },
@@ -653,7 +653,7 @@
       "ssisProject": "EnovacomV2",
       "onPremCount": "431",
       "d365Count": "32",
-      "gap": "0",
+      "gap": "399",
       "status": "migre",
       "comment": "Écart visible dans OneNote.",
       "note": "faux décalage car filtre sur 01/01/2020  sur compte parent non créer pour cette table - aucun impact"
@@ -742,12 +742,12 @@
       "family": "Prospection",
       "type": "standard",
       "ssisProject": "EnovacomV2",
-      "onPremCount": "0",
-      "d365Count": "0",
-      "gap": "0",
-      "status": "a_faire",
+      "onPremCount": "358",
+      "d365Count": "357",
+      "gap": "1",
+      "status": "migre",
       "comment": "Campagnes.",
-      "note": ""
+      "note": "écart de 1 enregistrement"
     },
     {
       "order": 33,
@@ -755,10 +755,10 @@
       "family": "Prospects",
       "type": "standard",
       "ssisProject": "EnovacomV2",
-      "onPremCount": "0",
-      "d365Count": "0",
+      "onPremCount": "4729",
+      "d365Count": "4729",
       "gap": "0",
-      "status": "a_faire",
+      "status": "migre",
       "comment": "Prospects sans compte.",
       "note": ""
     },
@@ -768,12 +768,12 @@
       "family": "Prospects",
       "type": "standard",
       "ssisProject": "EnovacomV2",
-      "onPremCount": "0",
-      "d365Count": "0",
-      "gap": "0",
-      "status": "a_faire",
+      "onPremCount": "2427",
+      "d365Count": "2425",
+      "gap": "2",
+      "status": "migre",
       "comment": "Prospects avec compte.",
-      "note": ""
+      "note": "petit écart de 2 enregistrement non importés"
     },
     {
       "order": 35,
@@ -781,12 +781,12 @@
       "family": "Contacts",
       "type": "standard",
       "ssisProject": "EnovacomV2",
-      "onPremCount": "0",
-      "d365Count": "0",
-      "gap": "0",
-      "status": "a_faire",
+      "onPremCount": "5263",
+      "d365Count": "5261",
+      "gap": "2",
+      "status": "migre",
       "comment": "Écart visible dans OneNote.",
-      "note": ""
+      "note": "2 enregistrements non importés"
     },
     {
       "order": 36,
@@ -794,12 +794,12 @@
       "family": "Contacts",
       "type": "standard",
       "ssisProject": "EnovacomV2",
-      "onPremCount": "0",
-      "d365Count": "0",
-      "gap": "0",
-      "status": "a_faire",
+      "onPremCount": "23472",
+      "d365Count": "23383",
+      "gap": "89",
+      "status": "migre",
       "comment": "Écart visible dans OneNote.",
-      "note": ""
+      "note": "89 enregistrements non importés"
     },
     {
       "order": 37,
@@ -807,10 +807,10 @@
       "family": "Opportunités",
       "type": "standard",
       "ssisProject": "EnovacomV2",
-      "onPremCount": "0",
-      "d365Count": "0",
+      "onPremCount": "25",
+      "d365Count": "25",
       "gap": "0",
-      "status": "a_faire",
+      "status": "migre",
       "comment": "Concurrents.",
       "note": ""
     },
@@ -833,12 +833,12 @@
       "family": "Opportunités",
       "type": "standard",
       "ssisProject": "EnovacomV2",
-      "onPremCount": "0",
-      "d365Count": "0",
-      "gap": "0",
-      "status": "a_faire",
+      "onPremCount": "2",
+      "d365Count": "1",
+      "gap": "1",
+      "status": "ecart",
       "comment": "Écart visible dans OneNote.",
-      "note": ""
+      "note": "1 écart"
     },
     {
       "order": 40,
@@ -846,10 +846,10 @@
       "family": "Opportunités",
       "type": "standard",
       "ssisProject": "EnovacomV2",
-      "onPremCount": "0",
-      "d365Count": "0",
-      "gap": "0",
-      "status": "a_faire",
+      "onPremCount": "3676",
+      "d365Count": "1668",
+      "gap": "2008",
+      "status": "ecart",
       "comment": "Écart visible dans OneNote.",
       "note": ""
     },
