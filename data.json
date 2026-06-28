@@ -2,7 +2,7 @@
   "project": {
     "title": "MIGRATION - ENOVACOM : PREMIER WEEK-END",
     "environment": "Production",
-    "lastUpdate": "2026-06-28T03:10",
+    "lastUpdate": "2026-06-28T03:13",
     "client": "Enovacom",
     "logo": "assets/enovacom-logo.svg"
   },
@@ -513,7 +513,7 @@
       "gap": "267",
       "status": "migre",
       "comment": "Dépend des tarifs et produits.",
-      "note": "267 , malgré quelques manquement je décide de lancer les flux qui rattache les produits d'opportunité tampon en produit d'opportunité réel"
+      "note": "267 manquants, malgré quelques manquement je décide de lancer les flux qui rattache les produits d'opportunité tampon en produit d'opportunité réel"
     },
     {
       "order": 15,
