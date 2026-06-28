@@ -2,7 +2,7 @@
   "project": {
     "title": "MIGRATION - ENOVACOM : PREMIER WEEK-END",
     "environment": "Production",
-    "lastUpdate": "2026-06-28T04:04",
+    "lastUpdate": "2026-06-28T04:36",
     "client": "Enovacom",
     "logo": "assets/enovacom-logo.svg"
   },
@@ -123,8 +123,8 @@
       "order": 8,
       "name": "Import des solutions en Production",
       "type": "phase",
-      "status": "en_cours",
-      "progress": 40,
+      "status": "termine",
+      "progress": 100,
       "dependsOn": [
         "wf-07"
       ],
@@ -156,8 +156,8 @@
       "order": 10,
       "name": "Tests rapides des personnalisations",
       "type": "phase",
-      "status": "a_faire",
-      "progress": 0,
+      "status": "termine",
+      "progress": 100,
       "dependsOn": [
         "wf-09"
       ],
@@ -172,8 +172,8 @@
       "order": 11,
       "name": "Désactivation des automatismes",
       "type": "phase",
-      "status": "a_faire",
-      "progress": 0,
+      "status": "termine",
+      "progress": 100,
       "dependsOn": [
         "wf-10"
       ],
