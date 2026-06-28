@@ -665,8 +665,8 @@
       "type": "à confirmer",
       "ssisProject": "EnovacomV2",
       "onPremCount": "131",
-      "d365Count": "40",
-      "gap": "91",
+      "d365Count": "131",
+      "gap": "0",
       "status": "migre",
       "comment": "Dans le flux SSIS après contrat de partenariat.",
       "note": "faux décalage car filtre sur 01/01/2020  sur compte parent non créer pour cette table - aucun impact"
