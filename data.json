@@ -2,7 +2,7 @@
   "project": {
     "title": "MIGRATION - ENOVACOM : PREMIER WEEK-END",
     "environment": "Production",
-    "lastUpdate": "2026-06-28T00:51",
+    "lastUpdate": "2026-06-28T03:10",
     "client": "Enovacom",
     "logo": "assets/enovacom-logo.svg"
   },
@@ -509,11 +509,11 @@
       "type": "standard",
       "ssisProject": "EnovacomV2",
       "onPremCount": "15033",
-      "d365Count": "11925",
-      "gap": "3108",
-      "status": "ecart",
+      "d365Count": "14766",
+      "gap": "267",
+      "status": "migre",
       "comment": "Dépend des tarifs et produits.",
-      "note": ""
+      "note": "267 , malgré quelques manquement je décide de lancer les flux qui rattache les produits d'opportunité tampon en produit d'opportunité réel"
     },
     {
       "order": 15,
