@@ -2,7 +2,7 @@
   "project": {
     "title": "MIGRATION - ENOVACOM : PREMIER WEEK-END",
     "environment": "Production",
-    "lastUpdate": "2026-06-28T10:42",
+    "lastUpdate": "2026-06-28T17:29",
     "client": "Enovacom",
     "logo": "assets/enovacom-logo.svg"
   },
@@ -604,7 +604,7 @@
       "gap": "0",
       "status": "migre",
       "comment": "Comptes parents.",
-      "note": "Petit soucis au niveau des Catégories de compte , Corrigé tout test migré"
+      "note": "Petit soucis au niveau des Catégories de compte , Corrigé tout test migré sans filtre = 11643 OnPrem , dans D365 = 10084  , total avec compte enfant = 12515 dans D365"
     },
     {
       "order": 22,
@@ -678,8 +678,8 @@
       "type": "à confirmer",
       "ssisProject": "EnovacomV2",
       "onPremCount": "203",
-      "d365Count": "120",
-      "gap": "83",
+      "d365Count": "202",
+      "gap": "1",
       "status": "migre",
       "comment": "Écart visible dans OneNote.",
       "note": "faux décalage car filtre sur 01/01/2020  sur compte parent non créer pour cette table - aucun impact"
@@ -691,7 +691,7 @@
       "type": "à confirmer",
       "ssisProject": "EnovacomV2",
       "onPremCount": "2081",
-      "d365Count": "441",
+      "d365Count": "2081",
       "gap": "1640",
       "status": "migre",
       "comment": "À exécuter après comptes.",
