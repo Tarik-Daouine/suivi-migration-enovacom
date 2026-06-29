@@ -2,7 +2,7 @@
   "project": {
     "title": "MIGRATION - ENOVACOM : PREMIER WEEK-END",
     "environment": "Production",
-    "lastUpdate": "2026-06-29T02:39",
+    "lastUpdate": "2026-06-29T05:29",
     "client": "Enovacom",
     "logo": "assets/enovacom-logo.svg"
   },
@@ -834,9 +834,9 @@
       "type": "standard",
       "ssisProject": "EnovacomV2",
       "onPremCount": "2",
-      "d365Count": "1",
-      "gap": "1",
-      "status": "ecart",
+      "d365Count": "2",
+      "gap": "0",
+      "status": "migre",
       "comment": "Écart visible dans OneNote.",
       "note": "1 écart"
     },
@@ -847,9 +847,9 @@
       "type": "standard",
       "ssisProject": "EnovacomV2",
       "onPremCount": "21515",
-      "d365Count": "20844",
-      "gap": "671",
-      "status": "ecart",
+      "d365Count": "21515",
+      "gap": "0",
+      "status": "migre",
       "comment": "Écart visible dans OneNote.",
       "note": ""
     },
@@ -859,12 +859,12 @@
       "family": "Opportunités",
       "type": "standard",
       "ssisProject": "EnovacomV2",
-      "onPremCount": "4559",
-      "d365Count": "4217",
-      "gap": "0",
+      "onPremCount": "4570",
+      "d365Count": "4559",
+      "gap": "11",
       "status": "migre",
-      "comment": "Flux PA gestion tarif à exécuter après cette étape. 4217 sur 4559 migré",
-      "note": "Import dans la table tampon - ok - Import réel ok : 92% migré"
+      "comment": "Flux PA gestion tarif à exécuter après cette étape. ",
+      "note": "petite écart de 11 enregistrements"
     },
     {
       "order": 42,
