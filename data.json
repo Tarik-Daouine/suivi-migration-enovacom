@@ -2,7 +2,7 @@
   "project": {
     "title": "MIGRATION - ENOVACOM : PREMIER WEEK-END",
     "environment": "Production",
-    "lastUpdate": "2026-06-29T23:27",
+    "lastUpdate": "2026-06-30T00:19",
     "client": "Enovacom",
     "logo": "assets/enovacom-logo.svg"
   },
@@ -940,7 +940,7 @@
       "onPremCount": "0",
       "d365Count": "0",
       "gap": "0",
-      "status": "a_faire",
+      "status": "migre",
       "comment": "Visible dans SSIS / OneNote.",
       "note": ""
     },
@@ -1301,7 +1301,7 @@
       "id": "pa-commande-tarif",
       "name": "Commande - gestion Tarif + ajout produit commande",
       "type": "Power Automate",
-      "status": "a_faire",
+      "status": "execute",
       "executionMoment": "Autour de Commande / Produit de Commande",
       "relatedFamily": "Commandes",
       "comment": "À afficher comme carte d'automatisme, pas comme table.",
@@ -1331,7 +1331,7 @@
       "id": "pa-opp-histo-bpf",
       "name": "OPP - récupération Histo BPF",
       "type": "Power Automate",
-      "status": "a_faire",
+      "status": "execute",
       "executionMoment": "Après opportunités / historique des phases de processus",
       "relatedFamily": "Processus",
       "comment": "À afficher comme carte d'automatisme liée aux opportunités.",
