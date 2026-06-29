@@ -2,7 +2,7 @@
   "project": {
     "title": "MIGRATION - ENOVACOM : PREMIER WEEK-END",
     "environment": "Production",
-    "lastUpdate": "2026-06-29T05:29",
+    "lastUpdate": "2026-06-29T10:37",
     "client": "Enovacom",
     "logo": "assets/enovacom-logo.svg"
   },
@@ -885,12 +885,12 @@
       "family": "Devis",
       "type": "standard",
       "ssisProject": "EnovacomV2",
-      "onPremCount": "0",
-      "d365Count": "0",
+      "onPremCount": "48538",
+      "d365Count": "32829",
       "gap": "0",
       "status": "en_cours",
       "comment": "Écart visible dans OneNote.",
-      "note": ""
+      "note": "Migration toujours en cours à 10H38"
     },
     {
       "order": 44,
