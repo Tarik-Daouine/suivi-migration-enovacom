@@ -2,7 +2,7 @@
   "project": {
     "title": "MIGRATION - ENOVACOM : PREMIER WEEK-END",
     "environment": "Production",
-    "lastUpdate": "2026-06-29T17:57",
+    "lastUpdate": "2026-06-29T23:27",
     "client": "Enovacom",
     "logo": "assets/enovacom-logo.svg"
   },
@@ -911,10 +911,10 @@
       "family": "Commandes",
       "type": "standard",
       "ssisProject": "EnovacomV2",
-      "onPremCount": "0",
-      "d365Count": "0",
-      "gap": "0",
-      "status": "en_cours",
+      "onPremCount": "11814",
+      "d365Count": "11799",
+      "gap": "15",
+      "status": "migre",
       "comment": "Écart visible dans OneNote.",
       "note": ""
     },
@@ -925,11 +925,11 @@
       "type": "standard",
       "ssisProject": "EnovacomV2",
       "onPremCount": "36711",
-      "d365Count": "36711",
-      "gap": "0",
-      "status": "a_faire",
+      "d365Count": "33026",
+      "gap": "3685",
+      "status": "migre",
       "comment": "Flux PA gestion tarif à exécuter avant ou autour de cette étape.",
-      "note": "Import dans la table tampon - ok"
+      "note": "Import dans la table tampon - ok écart s'explique car 3685 Produit de commande rattaché à commande avant 2020"
     },
     {
       "order": 47,
