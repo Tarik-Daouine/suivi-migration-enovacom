@@ -2,7 +2,7 @@
   "project": {
     "title": "MIGRATION - ENOVACOM : PREMIER WEEK-END",
     "environment": "Production",
-    "lastUpdate": "2026-06-29T17:40",
+    "lastUpdate": "2026-06-29T17:57",
     "client": "Enovacom",
     "logo": "assets/enovacom-logo.svg"
   },
@@ -313,21 +313,21 @@
     {
       "order": 3,
       "name": "SiteMap",
-      "status": "en_cours",
+      "status": "termine",
       "comment": "Respecter cet ordre",
       "note": ""
     },
     {
       "order": 4,
       "name": "Listing des automatisations",
-      "status": "en_cours",
+      "status": "termine",
       "comment": "Respecter cet ordre",
       "note": ""
     },
     {
       "order": 5,
       "name": "Power Automate - Détection des doublons",
-      "status": "en_cours",
+      "status": "termine",
       "comment": "Respecter cet ordre",
       "note": ""
     }
@@ -1311,7 +1311,7 @@
       "id": "pa-devis-tarif",
       "name": "Devis - gestion Tarif + ajout produit devis V2",
       "type": "Power Automate",
-      "status": "a_faire",
+      "status": "execute",
       "executionMoment": "Autour de Devis / Produit de Devis",
       "relatedFamily": "Devis",
       "comment": "À afficher comme carte d'automatisme, pas comme table.",
@@ -1341,7 +1341,7 @@
       "id": "pa-opp-tarif",
       "name": "Opportunité - gestion Tarif + ajout produit d'opp V2",
       "type": "Power Automate",
-      "status": "a_faire",
+      "status": "execute",
       "executionMoment": "Autour de Opportunité / Produit d'opportunité",
       "relatedFamily": "Opportunités",
       "comment": "À afficher comme carte d'automatisme, pas comme table.",
