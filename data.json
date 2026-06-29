@@ -2,7 +2,7 @@
   "project": {
     "title": "MIGRATION - ENOVACOM : PREMIER WEEK-END",
     "environment": "Production",
-    "lastUpdate": "2026-06-29T12:16",
+    "lastUpdate": "2026-06-29T17:40",
     "client": "Enovacom",
     "logo": "assets/enovacom-logo.svg"
   },
@@ -497,7 +497,7 @@
       "ssisProject": "EnovacomV2",
       "onPremCount": "2763",
       "d365Count": "2762",
-      "gap": "101",
+      "gap": "1",
       "status": "migre",
       "comment": "Produit + unité.",
       "note": "problème sur l'import - correction en cours"
@@ -510,7 +510,7 @@
       "ssisProject": "EnovacomV2",
       "onPremCount": "15033",
       "d365Count": "14818",
-      "gap": "267",
+      "gap": "215",
       "status": "migre",
       "comment": "Dépend des tarifs et produits.",
       "note": "267 manquants, malgré quelques manquement je décide de lancer les flux qui rattache les produits d'opportunité tampon en produit d'opportunité réel"
@@ -652,8 +652,8 @@
       "type": "à confirmer",
       "ssisProject": "EnovacomV2",
       "onPremCount": "431",
-      "d365Count": "32",
-      "gap": "399",
+      "d365Count": "431",
+      "gap": "0",
       "status": "migre",
       "comment": "Écart visible dans OneNote.",
       "note": "faux décalage car filtre sur 01/01/2020  sur compte parent non créer pour cette table - aucun impact"
@@ -692,7 +692,7 @@
       "ssisProject": "EnovacomV2",
       "onPremCount": "2081",
       "d365Count": "2081",
-      "gap": "1640",
+      "gap": "0",
       "status": "migre",
       "comment": "À exécuter après comptes.",
       "note": "faux décalage car filtre sur 01/01/2020  sur compte parent non créer pour cette table - aucun impact"
@@ -901,7 +901,7 @@
       "onPremCount": "161547",
       "d365Count": "161547",
       "gap": "0",
-      "status": "en_cours",
+      "status": "migre",
       "comment": "Flux PA gestion tarif à exécuter avant ou autour de cette étape.",
       "note": "Import dans la table tampon - ok"
     },
@@ -914,7 +914,7 @@
       "onPremCount": "0",
       "d365Count": "0",
       "gap": "0",
-      "status": "a_faire",
+      "status": "en_cours",
       "comment": "Écart visible dans OneNote.",
       "note": ""
     },
