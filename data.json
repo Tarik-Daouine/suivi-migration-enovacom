@@ -2,7 +2,7 @@
   "project": {
     "title": "MIGRATION - ENOVACOM : PREMIER WEEK-END",
     "environment": "Production",
-    "lastUpdate": "2026-06-30T00:22",
+    "lastUpdate": "2026-06-30T02:20",
     "client": "Enovacom",
     "logo": "assets/enovacom-logo.svg"
   },
@@ -950,10 +950,10 @@
       "family": "Activités / support",
       "type": "custom",
       "ssisProject": "EnovacomV2",
-      "onPremCount": "0",
+      "onPremCount": "3163",
       "d365Count": "0",
       "gap": "0",
-      "status": "a_faire",
+      "status": "en_cours",
       "comment": "Écart visible dans OneNote.",
       "note": ""
     },
@@ -963,10 +963,10 @@
       "family": "Activités / support",
       "type": "standard",
       "ssisProject": "EnovacomV2",
-      "onPremCount": "0",
+      "onPremCount": "27425",
       "d365Count": "0",
       "gap": "0",
-      "status": "a_faire",
+      "status": "en_cours",
       "comment": "Visible dans SSIS / OneNote.",
       "note": ""
     },
@@ -1002,10 +1002,10 @@
       "family": "Activités",
       "type": "standard",
       "ssisProject": "EnovacomV2",
-      "onPremCount": "0",
-      "d365Count": "0",
+      "onPremCount": "13634",
+      "d365Count": "13634",
       "gap": "0",
-      "status": "a_faire",
+      "status": "migre",
       "comment": "Écart visible dans OneNote.",
       "note": ""
     },
@@ -1016,9 +1016,9 @@
       "type": "standard",
       "ssisProject": "EnovacomV2",
       "onPremCount": "8475",
-      "d365Count": "0",
+      "d365Count": "8475",
       "gap": "0",
-      "status": "en_cours",
+      "status": "migre",
       "comment": "Écart visible dans OneNote.",
       "note": ""
     },
@@ -1044,7 +1044,7 @@
       "onPremCount": "0",
       "d365Count": "0",
       "gap": "0",
-      "status": "a_faire",
+      "status": "migre",
       "comment": "Lié au flux OPP récupération Histo BPF. (OneNote : ok)",
       "note": ""
     },
@@ -1057,7 +1057,7 @@
       "onPremCount": "0",
       "d365Count": "0",
       "gap": "0",
-      "status": "a_faire",
+      "status": "migre",
       "comment": "Visible dans le schéma SSIS en bas.",
       "note": ""
     },
