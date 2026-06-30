@@ -2,7 +2,7 @@
   "project": {
     "title": "MIGRATION - ENOVACOM : PREMIER WEEK-END",
     "environment": "Production",
-    "lastUpdate": "2026-06-30T17:39",
+    "lastUpdate": "2026-06-30T23:47",
     "client": "Enovacom",
     "logo": "assets/enovacom-logo.svg"
   },
@@ -513,7 +513,7 @@
       "gap": "215",
       "status": "migre",
       "comment": "Dépend des tarifs et produits.",
-      "note": "267 manquants, malgré quelques manquement je décide de lancer les flux qui rattache les produits d'opportunité tampon en produit d'opportunité réel"
+      "note": "267 manquants, malgré quelques manquement je décide de lancer les flux qui rattache les produits d'opportunité tampon en produit d'opportunité réel — [Recon 30/06] 14817 migres (216 hors perimetre). 2657 ecarts de prix."
     },
     {
       "order": 15,
@@ -773,7 +773,7 @@
       "gap": "2",
       "status": "migre",
       "comment": "Prospects avec compte.",
-      "note": "petit écart de 2 enregistrement non importés"
+      "note": "petit écart de 2 enregistrement non importés — [Recon 30/06] Champ Objet (subject) NON migre (vide D365) ~7153 prospects."
     },
     {
       "order": 35,
@@ -890,7 +890,7 @@
       "gap": "30",
       "status": "migre",
       "comment": "Écart visible dans OneNote.",
-      "note": "Migration toujours en cours à 10H38"
+      "note": "Migration toujours en cours à 10H38 — [Recon 30/06] VALORISATION NON FIDELE: OnPrem 628 MEUR vs D365 1408 MEUR (x2,24, +780 MEUR). ~92% devis alteres (flux re-pricing)."
     },
     {
       "order": 44,
@@ -916,7 +916,7 @@
       "gap": "15",
       "status": "migre",
       "comment": "Écart visible dans OneNote.",
-      "note": ""
+      "note": "[Recon 30/06] VALORISATION: OnPrem 130 MEUR vs D365 187 MEUR (x1,44, +57 MEUR). ~87% commandes alterees."
     },
     {
       "order": 46,
@@ -1070,9 +1070,9 @@
       "onPremCount": "0",
       "d365Count": "0",
       "gap": "0",
-      "status": "a_faire",
+      "status": "migre",
       "comment": "Table custom partie 2.",
-      "note": ""
+      "note": "[Migration partie 2] Pas de donnees source migrables."
     },
     {
       "order": 58,
@@ -1083,9 +1083,9 @@
       "onPremCount": "0",
       "d365Count": "0",
       "gap": "0",
-      "status": "a_faire",
+      "status": "migre",
       "comment": "Table custom partie 2.",
-      "note": ""
+      "note": "[Migration partie 2] Pas de donnees source migrables."
     },
     {
       "order": 59,
@@ -1093,12 +1093,12 @@
       "family": "Custom",
       "type": "custom",
       "ssisProject": "Enovacom partie 2",
-      "onPremCount": "0",
-      "d365Count": "0",
+      "onPremCount": "2",
+      "d365Count": "2",
       "gap": "0",
-      "status": "a_faire",
+      "status": "migre",
       "comment": "Table custom partie 2.",
-      "note": ""
+      "note": "[Migration partie 2] Migre >=2020 : 2 enr., 0 ecart. Total OnPrem: 3."
     },
     {
       "order": 60,
@@ -1106,12 +1106,12 @@
       "family": "Custom",
       "type": "custom",
       "ssisProject": "Enovacom partie 2",
-      "onPremCount": "0",
-      "d365Count": "0",
+      "onPremCount": "215",
+      "d365Count": "215",
       "gap": "0",
-      "status": "a_faire",
+      "status": "migre",
       "comment": "Écart +1 visible dans OneNote.",
-      "note": ""
+      "note": "[Migration partie 2] Migre >=2020 : 215 enr., 0 ecart. Total OnPrem: 356."
     },
     {
       "order": 61,
@@ -1119,12 +1119,12 @@
       "family": "Custom",
       "type": "custom",
       "ssisProject": "Enovacom partie 2",
-      "onPremCount": "0",
-      "d365Count": "0",
+      "onPremCount": "31",
+      "d365Count": "31",
       "gap": "0",
-      "status": "a_faire",
+      "status": "migre",
       "comment": "Table custom partie 2.",
-      "note": ""
+      "note": "[Migration partie 2] Migre >=2020 : 31 enr., 0 ecart. Total OnPrem: 86."
     },
     {
       "order": 62,
@@ -1132,12 +1132,12 @@
       "family": "Custom",
       "type": "custom",
       "ssisProject": "Enovacom partie 2",
-      "onPremCount": "0",
-      "d365Count": "0",
+      "onPremCount": "626",
+      "d365Count": "626",
       "gap": "0",
-      "status": "a_faire",
+      "status": "migre",
       "comment": "Table custom partie 2.",
-      "note": ""
+      "note": "[Migration partie 2] Migre >=2020 : 626 enr., 0 ecart. Total OnPrem: 626."
     },
     {
       "order": 63,
@@ -1145,12 +1145,12 @@
       "family": "Custom",
       "type": "custom",
       "ssisProject": "Enovacom partie 2",
-      "onPremCount": "0",
-      "d365Count": "0",
+      "onPremCount": "5",
+      "d365Count": "5",
       "gap": "0",
-      "status": "a_faire",
+      "status": "migre",
       "comment": "Table custom partie 2.",
-      "note": ""
+      "note": "[Migration partie 2] Migre >=2020 : 5 enr., 0 ecart. Total OnPrem: 9."
     },
     {
       "order": 64,
@@ -1161,9 +1161,9 @@
       "onPremCount": "0",
       "d365Count": "0",
       "gap": "0",
-      "status": "a_faire",
+      "status": "migre",
       "comment": "Table custom partie 2.",
-      "note": ""
+      "note": "[Migration partie 2] Pas de donnees source migrables."
     },
     {
       "order": 65,
@@ -1171,12 +1171,12 @@
       "family": "Custom",
       "type": "custom",
       "ssisProject": "Enovacom partie 2",
-      "onPremCount": "0",
-      "d365Count": "0",
+      "onPremCount": "4",
+      "d365Count": "4",
       "gap": "0",
-      "status": "a_faire",
+      "status": "migre",
       "comment": "Table custom partie 2.",
-      "note": ""
+      "note": "[Migration partie 2] Migre >=2020 : 4 enr., 0 ecart. Total OnPrem: 8."
     },
     {
       "order": 66,
@@ -1184,12 +1184,12 @@
       "family": "Custom",
       "type": "custom",
       "ssisProject": "Enovacom partie 2",
-      "onPremCount": "0",
-      "d365Count": "0",
+      "onPremCount": "140",
+      "d365Count": "140",
       "gap": "0",
-      "status": "a_faire",
+      "status": "migre",
       "comment": "Table custom partie 2.",
-      "note": ""
+      "note": "[Migration partie 2] Migre >=2020 : 140 enr., 0 ecart. Total OnPrem: 388."
     },
     {
       "order": 67,
@@ -1197,12 +1197,12 @@
       "family": "Custom",
       "type": "custom",
       "ssisProject": "Enovacom partie 2",
-      "onPremCount": "0",
-      "d365Count": "0",
+      "onPremCount": "106",
+      "d365Count": "106",
       "gap": "0",
-      "status": "a_faire",
+      "status": "migre",
       "comment": "Écart visible dans OneNote.",
-      "note": ""
+      "note": "[Migration partie 2] Migre >=2020 : 106 enr., 0 ecart. Total OnPrem: 130."
     },
     {
       "order": 68,
@@ -1210,12 +1210,12 @@
       "family": "Custom",
       "type": "custom",
       "ssisProject": "Enovacom partie 2",
-      "onPremCount": "0",
-      "d365Count": "0",
+      "onPremCount": "951",
+      "d365Count": "951",
       "gap": "0",
-      "status": "a_faire",
+      "status": "migre",
       "comment": "Écart visible dans OneNote.",
-      "note": ""
+      "note": "[Migration partie 2] Migre >=2020 : 951 enr., 0 ecart. Total OnPrem: 4632. — [Recon 30/06] Lookups OK; libelle new_name vide (auto-nommage D365) sur 613 - cosmetique."
     },
     {
       "order": 69,
@@ -1223,12 +1223,12 @@
       "family": "Custom",
       "type": "custom",
       "ssisProject": "Enovacom partie 2",
-      "onPremCount": "0",
-      "d365Count": "0",
+      "onPremCount": "2",
+      "d365Count": "2",
       "gap": "0",
-      "status": "a_faire",
+      "status": "migre",
       "comment": "Table custom partie 2.",
-      "note": ""
+      "note": "[Migration partie 2] Migre >=2020 : 2 enr., 0 ecart. Total OnPrem: 2."
     },
     {
       "order": 70,
@@ -1236,12 +1236,12 @@
       "family": "Custom",
       "type": "custom",
       "ssisProject": "Enovacom partie 2",
-      "onPremCount": "0",
-      "d365Count": "0",
+      "onPremCount": "15752",
+      "d365Count": "15752",
       "gap": "0",
-      "status": "a_faire",
+      "status": "migre",
       "comment": "Écart visible dans OneNote.",
-      "note": ""
+      "note": "[Migration partie 2] Migre >=2020 : 15752 enr., 0 ecart. Total OnPrem: 22386."
     },
     {
       "order": 71,
@@ -1249,12 +1249,12 @@
       "family": "Custom",
       "type": "custom",
       "ssisProject": "Enovacom partie 2",
-      "onPremCount": "0",
-      "d365Count": "0",
+      "onPremCount": "157",
+      "d365Count": "157",
       "gap": "0",
-      "status": "a_faire",
+      "status": "migre",
       "comment": "Table custom partie 2.",
-      "note": ""
+      "note": "[Migration partie 2] Migre >=2020 : 157 enr., 0 ecart. Total OnPrem: 621."
     },
     {
       "order": 72,
@@ -1262,12 +1262,12 @@
       "family": "Custom",
       "type": "custom",
       "ssisProject": "Enovacom partie 2",
-      "onPremCount": "0",
-      "d365Count": "0",
+      "onPremCount": "101",
+      "d365Count": "101",
       "gap": "0",
-      "status": "a_faire",
+      "status": "migre",
       "comment": "Table custom partie 2.",
-      "note": ""
+      "note": "[Migration partie 2] Migre >=2020 : 101 enr., 0 ecart. Total OnPrem: 101."
     },
     {
       "order": 73,
@@ -1278,9 +1278,9 @@
       "onPremCount": "0",
       "d365Count": "0",
       "gap": "0",
-      "status": "a_faire",
+      "status": "migre",
       "comment": "Table custom partie 2.",
-      "note": ""
+      "note": "[Migration partie 2] Pas de donnees source migrables."
     },
     {
       "order": 74,
@@ -1288,12 +1288,12 @@
       "family": "Custom",
       "type": "custom",
       "ssisProject": "Enovacom partie 2",
-      "onPremCount": "0",
-      "d365Count": "0",
+      "onPremCount": "1",
+      "d365Count": "1",
       "gap": "0",
-      "status": "a_faire",
+      "status": "migre",
       "comment": "Écart visible dans OneNote.",
-      "note": ""
+      "note": "[Migration partie 2] Migre >=2020 : 1 enr., 0 ecart. Total OnPrem: 32."
     }
   ],
   "automations": [
