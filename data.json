@@ -2,7 +2,7 @@
   "project": {
     "title": "MIGRATION - ENOVACOM : PREMIER WEEK-END",
     "environment": "Production",
-    "lastUpdate": "2026-06-30T02:39",
+    "lastUpdate": "2026-06-30T17:39",
     "client": "Enovacom",
     "logo": "assets/enovacom-logo.svg"
   },
@@ -964,9 +964,9 @@
       "type": "standard",
       "ssisProject": "EnovacomV2",
       "onPremCount": "27425",
-      "d365Count": "0",
+      "d365Count": "27425",
       "gap": "0",
-      "status": "en_cours",
+      "status": "migre",
       "comment": "Visible dans SSIS / OneNote.",
       "note": ""
     },
@@ -976,12 +976,12 @@
       "family": "Activités",
       "type": "standard",
       "ssisProject": "EnovacomV2",
-      "onPremCount": "0",
+      "onPremCount": "186987",
       "d365Count": "0",
       "gap": "0",
-      "status": "en_cours",
+      "status": "migre",
       "comment": "À garder en dernier groupe activité. (OneNote : ok)",
-      "note": "en cours de migration dans tampon"
+      "note": "en cours de migration dans tampon "
     },
     {
       "order": 51,
@@ -989,10 +989,10 @@
       "family": "Activités",
       "type": "standard",
       "ssisProject": "EnovacomV2",
-      "onPremCount": "0",
-      "d365Count": "0",
+      "onPremCount": "3283",
+      "d365Count": "3283",
       "gap": "0",
-      "status": "a_faire",
+      "status": "migre",
       "comment": "À garder en dernier groupe activité. (OneNote : ok)",
       "note": ""
     },
@@ -1031,7 +1031,7 @@
       "onPremCount": "0",
       "d365Count": "0",
       "gap": "0",
-      "status": "a_faire",
+      "status": "migre",
       "comment": "À exécuter après tables parentes. Flux Notes Tampon vers Note à prévoir. (OneNote : En cours)",
       "note": ""
     },
