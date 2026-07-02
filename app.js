@@ -397,6 +397,7 @@
      PANNEAU DÉTAIL (4.6) — lecture seule
      ==================================================================== */
   var panel, overlay;
+  var FULL = null, CURRENT = null, currentPhase = 1;
   function openDetail(t) {
     var gap = hasGap(t);
     var rows = [
@@ -447,37 +448,34 @@
   /* ====================================================================
      INTERACTIONS
      ==================================================================== */
-  function wireInteractions(data) {
+  // Écouteurs attachés UNE SEULE FOIS (délégation) — ils lisent la vue courante CURRENT.
+  function wireOnce() {
     panel = document.getElementById("detailPanel");
     overlay = document.getElementById("detailOverlay");
     document.getElementById("detailClose").addEventListener("click", closeDetail);
     overlay.addEventListener("click", closeDetail);
     document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeDetail(); });
 
-    var byOrder = {};
-    (data.tables || []).forEach(function (t) { byOrder[t.order] = t; });
+    var tl = document.getElementById("timeline");
 
-    // Clic sur une ligne de table -> panneau détail.
-    document.getElementById("timeline").addEventListener("click", function (e) {
+    // Clic sur une ligne de table -> panneau détail (table cherchée dans la vue courante).
+    tl.addEventListener("click", function (e) {
       var tr = e.target.closest("tr[data-order]");
       if (tr) {
-        var t = byOrder[Number(tr.dataset.order)];
+        var ord = Number(tr.dataset.order);
+        var t = (CURRENT && CURRENT.tables || []).find(function (x) { return x.order === ord; });
         if (t) openDetail(t);
-        return;
       }
-      // Filtre écarts.
-      if (e.target && e.target.id === "gapFilter") return; // handled by change
     });
 
     // Filtre "uniquement les écarts".
-    document.getElementById("timeline").addEventListener("change", function (e) {
+    tl.addEventListener("change", function (e) {
       if (e.target && e.target.id === "gapFilter") {
         var on = e.target.checked;
         document.querySelectorAll(".tbl tbody tr[data-order]").forEach(function (tr) {
           var isGap = tr.classList.contains("row-gap");
           tr.style.display = (on && !isGap) ? "none" : "";
         });
-        // Ouvre toutes les familles ayant un écart quand le filtre est actif.
         if (on) {
           document.querySelectorAll(".family").forEach(function (f) {
             if (f.querySelector("tr.row-gap")) f.open = true;
@@ -485,17 +483,57 @@
         }
       }
     });
+
+    // Sélecteur de phase.
+    var sw = document.getElementById("phaseSwitch");
+    if (sw) {
+      sw.addEventListener("click", function (e) {
+        var btn = e.target.closest(".phase-btn");
+        if (!btn) return;
+        var p = Number(btn.dataset.phase) || 1;
+        if (p === currentPhase) return;
+        currentPhase = p;
+        sw.querySelectorAll(".phase-btn").forEach(function (b) {
+          var on = Number(b.dataset.phase) === p;
+          b.classList.toggle("active", on);
+          b.setAttribute("aria-selected", on ? "true" : "false");
+        });
+        document.body.setAttribute("data-phase", String(p));
+        renderCurrent();
+      });
+    }
   }
 
   /* ====================================================================
-     INIT
+     VUE PAR PHASE + INIT
      ==================================================================== */
+  // Construit la vue filtrée sur la phase demandée (phase absente = phase 1).
+  function buildView(phase) {
+    function fp(arr) {
+      return (arr || []).filter(function (x) { return (x.phase || 1) === phase; });
+    }
+    var v = {};
+    Object.keys(FULL).forEach(function (k) { v[k] = FULL[k]; });
+    v.workflow = fp(FULL.workflow);
+    v.tables = fp(FULL.tables);
+    v.automations = fp(FULL.automations);
+    v.solutions = phase === 1 ? (FULL.solutions || []) : []; // solutions = spécifiques MEP week-end
+    return v;
+  }
+
+  function renderCurrent() {
+    CURRENT = buildView(currentPhase);
+    renderHeader(CURRENT);
+    renderKPIs(computeKPIs(CURRENT));
+    renderTimeline(CURRENT);
+    renderAutomationSummary(CURRENT);
+  }
+
   function init(data) {
-    renderHeader(data);
-    renderKPIs(computeKPIs(data));
-    renderTimeline(data);
-    renderAutomationSummary(data);
-    wireInteractions(data);
+    FULL = data;
+    document.body.setAttribute("data-phase", String(currentPhase));
+    renderCurrent();
+    wireOnce();
   }
 
   fetch("data.json", { cache: "no-store" })

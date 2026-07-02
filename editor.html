@@ -46,6 +46,15 @@
     }
     .ed-tab.active { background: var(--teal); color: #fff; border-color: var(--teal); }
 
+    .ed-phase-switch { display: flex; gap: 8px; margin: 4px 0 10px; }
+    .ed-phase-btn {
+      border: 1px solid var(--line); border-left: 4px solid var(--line);
+      background: var(--surface); color: var(--ink-soft);
+      padding: 8px 16px; border-radius: 10px; cursor: pointer;
+      font-weight: 800; font-size: .84rem; font-family: inherit;
+    }
+    .ed-phase-btn.active { background: var(--teal); color: #fff; border-color: var(--teal); border-left-color: var(--coral); }
+
     .ed-panel { display: none; }
     .ed-panel.active { display: block; }
 
@@ -189,11 +198,16 @@
 
     <div class="pub-indicator" id="pubStatus">Vérification de l'état de publication…</div>
 
+    <div class="ed-phase-switch" id="edPhaseSwitch">
+      <button class="ed-phase-btn active" data-edphase="1">Phase 1 — MEP week-end (≥ 2020)</button>
+      <button class="ed-phase-btn" data-edphase="2">Phase 2 — Reprise pré-2020</button>
+    </div>
+
     <div class="ed-tabs">
-      <button class="ed-tab active" data-tab="workflow">Runbook (18)</button>
-      <button class="ed-tab" data-tab="solutions">Solutions (5)</button>
-      <button class="ed-tab" data-tab="tables">Tables (74)</button>
-      <button class="ed-tab" data-tab="automations">Automatismes (5)</button>
+      <button class="ed-tab active" data-tab="workflow">Runbook</button>
+      <button class="ed-tab" data-tab="solutions">Solutions</button>
+      <button class="ed-tab" data-tab="tables">Tables</button>
+      <button class="ed-tab" data-tab="automations">Automatismes</button>
     </div>
     </div>
 

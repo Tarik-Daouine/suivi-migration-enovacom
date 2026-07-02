@@ -28,6 +28,18 @@
   </header>
 
   <main class="app-main">
+    <!-- Sélecteur de phase -->
+    <div class="phase-switch" id="phaseSwitch" role="tablist" aria-label="Choix de la phase">
+      <button class="phase-btn active" data-phase="1" role="tab" aria-selected="true">
+        <span class="phase-btn-title">Phase 1 — MEP week-end</span>
+        <span class="phase-btn-sub">Données 2020 et après</span>
+      </button>
+      <button class="phase-btn" data-phase="2" role="tab" aria-selected="false">
+        <span class="phase-btn-title">Phase 2 — Reprise pré-2020</span>
+        <span class="phase-btn-sub">Données antérieures à 2020</span>
+      </button>
+    </div>
+
     <!-- 4.2 Bandeau KPI -->
     <section class="kpi-band" id="kpiBand" aria-label="Indicateurs clés">
       <!-- KPI cards injected by app.js -->

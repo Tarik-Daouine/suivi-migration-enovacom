@@ -20,6 +20,8 @@
   };
 
   var data = null;
+  var editPhase = 1; // phase couramment éditée (1 = ≥2020, 2 = pré-2020)
+  function inPhase(x) { return (x && (x.phase || 1)) === editPhase; }
 
   function $(id) { return document.getElementById(id); }
   function setStatus(msg) { $("edStatus").textContent = msg; }
@@ -88,6 +90,7 @@
     var host = $("panel-workflow");
     host.innerHTML = "";
     (data.workflow || []).forEach(function (w, i) {
+      if (!inPhase(w)) return;
       var isMilestone = w.type === "milestone";
       var card = document.createElement("div");
       card.className = "ed-card" + (isMilestone ? " is-milestone" : "");
@@ -131,6 +134,10 @@
   function renderSolutions() {
     var host = $("panel-solutions");
     host.innerHTML = "";
+    if (editPhase !== 1) {
+      host.innerHTML = '<div class="ed-section-title">Les solutions ne concernent que la Phase 1 (MEP week-end).</div>';
+      return;
+    }
     (data.solutions || []).forEach(function (s, i) {
       var card = document.createElement("div");
       card.className = "ed-card";
@@ -158,9 +165,13 @@
   function renderTables() {
     var host = $("panel-tables");
     host.innerHTML = "";
-    // Regroupé par famille pour la lisibilité.
+    // Regroupé par famille pour la lisibilité (familles de la phase courante).
     var fams = [];
-    (data.tables || []).forEach(function (t) { if (fams.indexOf(t.family) === -1) fams.push(t.family); });
+    (data.tables || []).forEach(function (t) { if (inPhase(t) && fams.indexOf(t.family) === -1) fams.push(t.family); });
+    if (!fams.length) {
+      host.innerHTML = '<div class="ed-section-title">Aucune table pour cette phase.</div>';
+      return;
+    }
 
     fams.forEach(function (fam) {
       var title = document.createElement("div");
@@ -169,7 +180,7 @@
       host.appendChild(title);
 
       data.tables.forEach(function (t, i) {
-        if (t.family !== fam) return;
+        if (t.family !== fam || !inPhase(t)) return;
         var card = document.createElement("div");
         card.className = "ed-card";
         card.innerHTML =
@@ -238,6 +249,7 @@
     var host = $("panel-automations");
     host.innerHTML = "";
     (data.automations || []).forEach(function (a, i) {
+      if (!inPhase(a)) return;
       var card = document.createElement("div");
       card.className = "ed-card";
       card.innerHTML =
@@ -461,6 +473,19 @@
     a.href = url; a.download = "data.json";
     document.body.appendChild(a); a.click();
     document.body.removeChild(a); URL.revokeObjectURL(url);
+  });
+
+  /* ---------- Sélecteur de phase ---------- */
+  document.querySelectorAll(".ed-phase-btn").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var p = Number(btn.dataset.edphase) || 1;
+      if (p === editPhase) return;
+      editPhase = p;
+      document.querySelectorAll(".ed-phase-btn").forEach(function (b) {
+        b.classList.toggle("active", Number(b.dataset.edphase) === p);
+      });
+      if (data) renderAll();
+    });
   });
 
   /* ---------- Onglets ---------- */
